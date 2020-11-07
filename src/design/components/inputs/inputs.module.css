@@ -1,0 +1,145 @@
+input.text-input {
+	font-family: 'VisbyCF';
+	font-weight: 900;
+	color: var(--text);
+	border: none;
+	padding: 10px 15px;
+	font-size: 1.1em;
+	outline: none;
+	margin: 5px 0px;
+	width: 100%;
+	box-sizing: border-box;
+	cursor: text;
+	will-change: border;
+	transition: border 0.2s ease-in-out;
+	background-color: var(--dark);
+}
+
+/* SIMPLE INPUTS */
+div.simple-input {
+	position: relative;
+	will-change: box-shadow;
+	transition: box-shadow 0.2s ease-in-out;
+	margin: 5px 0px;
+}
+
+div.simple-input input {
+	border-radius: var(--border-radius);
+	border: solid 2px var(--content);
+}
+
+div.simple-input.inline, div.input-field.inline {
+	display: inline-block;
+}
+
+div.simple-input:not(.disabled):not(.loading) input:hover {
+	border: solid 2px var(--white-border);
+	box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+div.simple-input input:focus {
+	border: solid 2px var(--high-accent);
+}
+
+div.simple-input.icon input {
+	padding-right: 50px;
+}
+
+div.simple-input.icon.dropdown i.gg-icon {
+	opacity: 0.7;
+	transition: opacity 0.2s ease-in-out;
+	cursor: pointer;
+}
+
+div.simple-input.icon.dropdown i.gg-icon:hover {
+	opacity: 1;
+}
+
+div.simple-input.icon i.gg-icon {
+	position: absolute;
+	bottom: 50%;
+	transform: translateY(50%);
+	right: 20px;
+}
+
+/* INPUT FIELDS */
+div.input-field {
+	margin: 10px 0px;
+	position: relative;
+}
+
+div.input-field label {
+	position: absolute;
+	top: 10px;
+	left: 13px;
+	cursor: text;
+	user-select: none;
+	display: flex;
+	align-items: baseline;
+	pointer-events: none;
+	color: var(--white-border);
+}
+
+div.input-field label span.required {
+	color: var(--warning-accent);
+	font-size: 1.2em;
+	padding-left: 5px;
+	pointer-events: none;
+}
+
+div.input-field label span.message {
+	font-style: italic;
+	font-weight: 600;
+	font-size: 0.8em;
+	line-height: 1em ;
+	padding-left: 10px;
+	pointer-events: none;
+}
+
+div.input-field.warning label span.message {
+	color: var(--warning-accent);
+}
+
+div.input-field.error label span.message {
+	color: var(--error-accent);
+}
+
+div.input-field.disabled label {
+	color: var(--disabled);
+}
+
+div.input-field input {
+	border-radius: var(--border-radius);
+	border: solid 2px var(--content);
+	padding: 10px 15px;
+	padding-top: 2.3em;
+	padding-bottom: 12px;
+	margin: 0;
+}
+
+div.input-field.error input {
+	border: solid 2px var(--error-accent);
+}
+
+div.input-field.warning input {
+	border: solid 2px var(--warning-accent);
+}
+
+div.input-field:not(.disabled):not(.loading) input:hover {
+	border: solid 2px var(--white-border);
+}
+
+div.input-field input:focus {
+	border: solid 2px var(--high-accent);
+}
+
+div.input-field.icon i.gg-icon {
+	position: absolute;
+	bottom: 20px;
+	right: 22px;
+}
+
+div.simple-input i.gg-icon.clickable,
+div.input-field i.gg-icon.clickable {
+	cursor: pointer;
+}

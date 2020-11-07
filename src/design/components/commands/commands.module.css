@@ -1,0 +1,114 @@
+div.command-box-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	z-index: 10;
+}
+
+div.command-box {
+	border-radius: var(--border-radius);
+	background-color: var(--light-dark);
+	padding: 5px 0px 0px 0px;
+	min-width: 600px;
+	box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.2);
+	max-height: 400px;
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 150px;
+}
+
+div.command-box div.command-box-context {
+	padding: 10px 12px 0px 12px;
+}
+
+div.command-box div.command-box-input {
+	border-bottom: 2px solid var(--content);
+}
+
+div.command-box div.command-box-input div.command-input input,
+div.command-box div.command-box-input div.command-input input:hover,
+div.command-box div.command-box-input div.command-input input:focus,
+div.command-box div.command-box-input div.command-input,
+div.command-box div.command-box-input div.command-input:hover {
+	border: none;
+	box-shadow: none;
+	background-color: transparent;
+}
+
+
+div.command-box div.command-box-actions::-webkit-scrollbar {
+ 	display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+div.command-box div.command-box-actions {
+ 	-ms-overflow-style: none;  /* IE and Edge */
+ 	scrollbar-width: none;  /* Firefox */
+}
+
+div.command-box div.command-box-actions {
+	overflow-y: scroll;
+	border-bottom-left-radius: var(--border-radius);
+	border-bottom-right-radius: var(--border-radius);
+}
+
+div.command-box div.command-box-action {
+	padding: 15px 20px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+
+div.command-box div.command-box-action:last-child {
+	border-bottom-left-radius: var(--border-radius);
+	border-bottom-right-radius: var(--border-radius);
+}
+
+div.command-box div.command-box-action.active {
+	background-color: var(--gray);
+}
+
+div.command-box div.command-box-action-group {
+	background: var(--content);
+	padding: 5px 15px;
+	font-size: 0.8em;
+	margin: 3px 0px;
+}
+
+div.command-box div.command-box-action-separator {
+	position: relative;
+	height: 6px;
+}
+
+div.command-box div.command-box-action-separator:after {
+	content: "";
+	width: 100%;
+	height: 2px;
+	position: absolute;
+	left: 0;
+	top: 2px;
+	background-color: var(--content);
+}
+
+div.command-box div.command-box-action.active i.gg-icon {
+	opacity: 0.9;
+}
+
+div.command-box i.gg-icon {
+	display: inline-block;
+	margin-right: 25px;
+	opacity: 0.7;
+	transform: scale(0.8);
+}
+
+@media only screen and (max-width:450px) {
+	div.command-box {
+		min-width: 90%;
+		top: 50px;
+	}
+}

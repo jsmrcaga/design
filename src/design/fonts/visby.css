@@ -1,0 +1,123 @@
+/* ************ */
+/* VisbyCF */
+/* ************ */
+@font-face {
+  font-family: 'VisbyCF';
+  font-weight: normal;
+  font-style: normal;
+  src: url('./Visby CF/VisbyCF-Medium.ttf');
+  src: url('./Visby CF/VisbyCF-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'VisbyCF';
+  font-weight: normal;
+  font-style: italic;
+  src: url('./Visby CF/VisbyCF-MediumOblique.ttf');
+  src: url('./Visby CF/VisbyCF-MediumOblique.ttf')  format('truetype');
+}
+
+/* Black */
+@font-face {
+  font-family: 'VisbyCF';
+  font-weight: 900;
+  font-style: normal;
+  src: url('./Visby CF/VisbyCF-ExtraBold.ttf');
+  src: url('./Visby CF/VisbyCF-ExtraBold.ttf')  format('truetype');
+}
+
+@font-face {
+  font-family: 'VisbyCF';
+  font-weight: 900;
+  font-style: italic;
+  src: url('./Visby CF/VisbyCF-ExtraBoldOblique.ttf');
+  src: url('./Visby CF/VisbyCF-ExtraBoldOblique.ttf')  format('truetype');
+}
+
+/* Bold */
+@font-face {
+  font-family: 'VisbyCF';
+  font-weight: bold;
+  font-style: normal;
+  src: url('./Visby CF/VisbyCF-Bold.ttf');
+  src: url('./Visby CF/VisbyCF-Bold.ttf')  format('truetype');
+}
+
+@font-face {
+  font-family: 'VisbyCF';
+  font-weight: bold;
+  font-style: italic;
+  src: url('./Visby CF/VisbyCF-BoldOblique.ttf');
+  src: url('./Visby CF/VisbyCF-BoldOblique.ttf')  format('truetype');
+}
+
+/* DemiBold */
+@font-face {
+  font-family: 'VisbyCF';
+  font-weight: 600;
+  font-style: normal;
+  src: url('./Visby CF/VisbyCF-DemiBold.ttf');
+  src: url('./Visby CF/VisbyCF-DemiBold.ttf')  format('truetype');
+}
+
+@font-face {
+  font-family: 'VisbyCF';
+  font-weight: 600;
+  font-style: italic;
+  src: url('./Visby CF/VisbyCF-DemiBoldOblique.ttf');
+  src: url('./Visby CF/VisbyCF-DemiBoldOblique.ttf')  format('truetype');
+}
+
+
+/* Heavy */
+@font-face {
+  font-family: 'VisbyCF';
+  font-weight: 500;
+  font-style: normal;
+  src: url('./Visby CF/VisbyCF-Heavy.ttf');
+  src: url('./Visby CF/VisbyCF-Heavy.ttf')  format('truetype');
+}
+
+@font-face {
+  font-family: 'VisbyCF';
+  font-weight: 500;
+  font-style: italic;
+  src: url('./Visby CF/VisbyCF-HeavyOblique.ttf');
+  src: url('./Visby CF/VisbyCF-HeavyOblique.ttf')  format('truetype');
+}
+
+
+/* Light */
+@font-face {
+  font-family: 'VisbyCF';
+  font-weight: 200;
+  font-style: normal;
+  src: url('./Visby CF/VisbyCF-Light.ttf');
+  src: url('./Visby CF/VisbyCF-Light.ttf')  format('truetype');
+}
+
+@font-face {
+  font-family: 'VisbyCF';
+  font-weight: 200;
+  font-style: italic;
+  src: url('./Visby CF/VisbyCF-LightOblique.ttf');
+  src: url('./Visby CF/VisbyCF-LightOblique.ttf')  format('truetype');
+}
+
+
+/* Thin */
+@font-face {
+  font-family: 'VisbyCF';
+  font-weight: 100;
+  font-style: normal;
+  src: url('./Visby CF/VisbyCF-Thin.ttf');
+  src: url('./Visby CF/VisbyCF-Thin.ttf')  format('truetype');
+}
+
+@font-face {
+  font-family: 'VisbyCF';
+  font-weight: 100;
+  font-style: italic;
+  src: url('./Visby CF/VisbyCF-ThinOblique.ttf');
+  src: url('./Visby CF/VisbyCF-ThinOblique.ttf')  format('truetype');
+}

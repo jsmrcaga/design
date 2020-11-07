@@ -1,0 +1,40 @@
+div.responsive-table {
+	width: 100%;
+	overflow-y: scroll;
+}
+
+table.table {
+	width: 100%;
+	border-spacing: 10px;
+	border-collapse: collapse;
+}
+
+table.table th {
+	text-transform: uppercase;
+	font-weight: 500;
+	border-bottom: 3px solid var(--accent);
+	text-align: left;
+}
+
+table.table tr {
+	border-bottom: 1px solid var(--accent);
+	will-change: background-color;
+	transition: background-color 0.2s ease-in-out;
+}
+
+table.table tbody tr:hover {
+	background-color: var(--accent);
+}
+
+table.table th, table.table td {
+	padding: 12px 15px;
+	margin: 5px 0px;
+}
+
+table.table tr.selected {
+	background-color: var(--accent);
+}
+
+table.table td.selected {
+	background-color: var(--accent);
+}

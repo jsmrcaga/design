@@ -1,0 +1,118 @@
+label.checkable {
+	position: relative;
+	padding: 10px 5px;
+	cursor: pointer;
+	margin: 5px;
+	display: inline-block;
+	text-transform: capitalize;
+	user-select: none;
+}
+
+label.checkable input {
+	opacity: 0;
+	width: 25px;
+}
+
+label.checkable[type="toggle"] input {
+	width: 45px;
+}
+
+
+/* SPAN */
+label.checkable span {
+	border: 2px solid var(--disabled);
+	border-radius: 3px;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	left: 6px;
+	top: 7px;
+	transition: border 0.2s linear;
+}
+
+label.checkable:hover:not(.disabled) span {
+	border-color: var(--white-border);
+}
+
+label.checkable[type="radio"] span {
+	border-radius: 50%;
+}
+
+label.checkable[type="toggle"] span {
+	width: 40px;
+	border-radius: 40px;
+	background-color: var(--content);
+}
+
+label.checkable[type="toggle"] > input:not(:checked) ~ span {
+	background-color: var(--dark);
+}
+
+/* AFTER */
+label.checkable > input ~ span:after {
+	content: "";
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	background: var(--high-accent);
+	height: 16px;
+	width: 16px;
+	border-radius: 1px;
+	transform: scale(0);
+	will-change: transform;
+	transition: transform 0.15s ease-in-out;
+}
+
+label.checkable > input:checked ~ span:after {
+	transform: scale(1);
+}
+
+label.checkable[type="radio"] > input ~ span:after {
+	border-radius: 50%;
+}
+
+label.checkable[type="toggle"].disabled span:after {
+	background: var(--disabled);
+}
+
+label.checkable[type="toggle"] > input ~ span:after {
+	transform: scale(1);
+	border-radius: 50%;
+	transition: left 0.1s ease-in-out;	
+}
+
+label.checkable[type="toggle"]:not(.disabled) > input:not(:checked) ~ span:after {
+	background-color: var(--white-border);
+}
+
+label.checkable[type="toggle"] > input:checked ~ span:after {
+	left: 22px;
+}
+
+/* BEFORE */
+label.checkable[type="checkbox"] > input ~ span:before {
+	content: '';
+	position: absolute;
+	width: 3px;
+	height: 8px;
+	border: solid #FFF;
+	border-width: 0px 2px 2px 0px;
+	top: 3.5px;
+	z-index: 1;
+	left: 8px;
+	transform: rotate(-10deg) scale(0);
+	will-change: transform;
+	transition: transform 0.2s ease-in-out;
+}
+
+label.checkable[type="checkbox"] > input:checked ~ span:before {
+	transform: rotate(40deg) scale(1);
+}
+
+label.checkable.disabled {
+	color: var(--disabled);
+}
+
+label.checkable span {
+	border: 2px solid rgba(255, 255, 255, 0.4);
+}

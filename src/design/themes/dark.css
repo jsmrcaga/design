@@ -1,0 +1,32 @@
+:root {
+	/* Theme */
+	--dark: #1f232b;
+	--light-dark: #17191f;
+
+	--content: #232429;
+	--text: #e8e6df;
+
+	--accent: #294ab7;
+	--medium-accent: #444398;
+	--high-accent: #467bde;
+
+	--disabled: rgba(255, 255, 255, 0.5);
+	--disabled-dark: #272727;
+	--gray: #353535;
+	--white-border: rgba(255, 255, 255, 0.7);
+	
+	/* Colors */
+	--success-content: #289654;
+	--success-accent: #39cf75;
+
+	--warning-content: #564d29;
+	--warning-accent: #d09f23;
+
+	--error-content: #732a27;
+	--error-accent: #b13434;
+	--error-light: #6d2523;
+
+	/* Borders */
+	--border-radius: 0.4rem;
+	--border-radius-small: 0.3rem;
+}

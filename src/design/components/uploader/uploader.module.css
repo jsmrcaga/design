@@ -1,0 +1,107 @@
+div.uploader {
+	border-radius: var(--border-radius);
+	border: 3px solid;
+	border-color: var(--accent);
+	transition: border-color 0.2s ease-in-out;
+	margin: 15px 0px;
+}
+
+div.uploader:hover {
+	border-color: var(--high-accent);
+}
+
+div.uploader label {
+	min-height: 100px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	position: relative;
+}
+
+div.uploader label * {
+	pointer-events: none;
+}
+
+div.uploader label input {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	max-width: 50%;
+}
+
+div.uploader div.uploader-content {
+	margin: 25px 0;
+	text-align: center;
+	pointer-events: none;
+}
+
+
+/* Full uploader */
+div.uploader svg {
+	fill: var(--high-accent);
+	max-width: 100px;
+}
+
+div.uploader svg.error-icon {
+	fill: var(--error-accent);
+}
+
+div.uploader svg.loaded-file {
+	fill: var(--success-accent);
+}
+
+div.uploader svg path#background {
+	fill: var(--content);
+}
+
+div.uploader div.uploader-icon {
+	padding: 20px;
+}
+
+/* Valid file */
+div.uploader div.uploader-valid-file {
+	position: relative;
+	padding: 20px;
+}
+
+
+@keyframes file-left {
+	0% {
+		transform: rotate(0deg);
+		left: 0;
+	}
+
+	100% {
+		transform: rotate(-16.7deg);
+		left: -45px;
+	}
+}
+
+@keyframes file-right {
+	0% {
+		transform: rotate(0deg);
+		right: 0;
+	}
+
+	100% {
+		transform: rotate(16.7deg);
+		right: -45px;
+	}
+}
+
+div.uploader svg.file-left {
+	position: absolute;
+	animation: file-left 0.5s forwards;
+	top: 20px;
+	z-index: -1;
+}
+
+div.uploader svg.file-right {
+	position: absolute;
+	animation: file-right 0.5s forwards;
+	top: 20px;
+	z-index: -1;
+}

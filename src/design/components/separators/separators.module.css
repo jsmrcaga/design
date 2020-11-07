@@ -1,0 +1,33 @@
+div.separator {
+	display: block;
+	width: 100%;
+	font-size: 1rem;
+	border: none;
+	margin: 2rem 0;
+	position: relative;
+	text-align: center;
+	display: flex;
+}
+
+div.separator span {
+	display: block;
+}
+
+div.separator span:not(.content) {
+	width: auto;
+	flex-grow: 1;
+	position: relative;
+}
+
+div.separator span:not(.content):after {
+	content: '';
+	position: absolute;
+	border-bottom: 3px solid var(--content);
+	top: 50%;
+	left: 0;
+	width: 100%;
+}
+
+div.separator span.content:not(:empty) {
+	padding: 0 20px;
+}

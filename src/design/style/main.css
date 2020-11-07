@@ -1,0 +1,67 @@
+@import url('../fonts/merriweather.css');
+@import url('../fonts/visby.css');
+
+@import url('../animations/animations.css');
+@import url('./colors.css');
+
+body {
+	margin: 0;
+	font-family: 'VisbyCF';
+	font-weight: bold;
+	font-size: 15px;
+	box-sizing: border-box;
+	background: var(--dark);
+	color: var(--text);
+}
+
+div {
+	box-sizing: border-box;
+}
+
+*.merriweather {
+	font-family: 'Merriweather';
+}
+
+*.visbycf {
+	font-family: 'VisbyCF';
+}
+
+p {
+	font-weight: 600;
+}
+
+div.color-demo {
+	height: 70px;
+	width: 70px;
+	position: relative;
+}
+
+a:active,
+a:visited,
+a:link {
+	color: var(--text);
+}
+
+/* Icons */
+svg.gg-icon {
+	cursor: pointer;
+	display: inline-block;
+}
+
+svg.gg-icon.small {
+	max-height: 13px;
+}
+
+/* Special text */
+kbd {
+	background-color: var(--gray);
+	padding: 5px 7px;
+	border-radius: 5px;
+	border: 1px solid var(--accent);
+	box-shadow: 0px 2px 2px 1px rgba(0,0,0,0.4);
+}
+
+*.fluid {
+	flex-grow: 1;
+	width: 100%;
+}

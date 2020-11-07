@@ -1,0 +1,69 @@
+/* ************ */
+/* MERRIWEATHER */
+/* ************ */
+@font-face {
+  font-family: 'Merriweather';
+  font-weight: normal;
+  font-style: normal;
+  src: url('./Merriweather/Merriweather-Regular.ttf');
+  src: url('./Merriweather/Merriweather-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  font-weight: normal;
+  font-style: italic;
+  src: url('./Merriweather/Merriweather-Italic.ttf');
+  src: url('./Merriweather/Merriweather-Italic.ttf') format('truetype');
+}
+
+/* Black */
+@font-face {
+  font-family: 'Merriweather';
+  font-weight: 900;
+  font-style: normal;
+  src: url('./Merriweather/Merriweather-Black.ttf');
+  src: url('./Merriweather/Merriweather-Black.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  font-weight: 900;
+  font-style: italic;
+  src: url('./Merriweather/Merriweather-BlackItalic.ttf');
+  src: url('./Merriweather/Merriweather-BlackItalic.ttf') format('truetype');
+}
+
+/* Bold */
+@font-face {
+  font-family: 'Merriweather';
+  font-weight: bold;
+  font-style: normal;
+  src: url('./Merriweather/Merriweather-Bold.ttf');
+  src: url('./Merriweather/Merriweather-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  font-weight: bold;
+  font-style: italic;
+  src: url('./Merriweather/Merriweather-BoldItalic.ttf');
+  src: url('./Merriweather/Merriweather-BoldItalic.ttf') format('truetype');
+}
+
+/* Light */
+@font-face {
+  font-family: 'Merriweather';
+  font-weight: 200;
+  font-style: normal;
+  src: url('./Merriweather/Merriweather-Light.ttf');
+  src: url('./Merriweather/Merriweather-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  font-weight: 200;
+  font-style: italic;
+  src: url('./Merriweather/Merriweather-LightItalic.ttf');
+  src: url('./Merriweather/Merriweather-LightItalic.ttf') format('truetype');
+}

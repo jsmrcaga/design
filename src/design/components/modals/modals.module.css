@@ -1,0 +1,62 @@
+div.modal-container {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.6);
+	display: flex;
+	align-items: center;
+	z-index: 3;
+}
+
+div.modal-container div.closer {
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+	opacity: 0.4;
+	will-change: opacity;
+	transition: opacity 0.15s ease-in-out;
+}
+
+div.modal-container div.closer:hover {
+	opacity: 1;
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+div.modal-container div.closer:after, div.modal-container div.closer:before {
+	content: '';
+	position: absolute;
+	left: 9px;
+	top: 2px;
+	height: 15px;
+	width: 3px;
+	background-color: var(--text);;
+	transform: rotate(45deg);
+}
+
+div.modal-container div.closer:before {
+	transform: rotate(-45deg);
+}
+
+div.modal-container div.content {
+	box-sizing: border-box;
+	margin: 0 auto;
+	border-radius: var(--border-radius);
+	background-color: var(--content);
+	min-width: min(70%, 900px);
+	max-width: max(80%, 1200px);
+	padding: 50px 40px;
+	box-shadow: 0px 7px 13px 4px rgba(0, 0, 0, 0.2)
+}
+
+@media only screen and (max-width: 900px) {
+	div.modal-container div.content {
+		min-width: 100%;
+		position: absolute;
+		bottom: 0;
+	}
+}

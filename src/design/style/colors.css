@@ -1,0 +1,56 @@
+/* COLORS */
+.bg-dark {
+	background-color: var(--dark) !important;
+}
+
+.bg-light-dark {
+	background-color: var(--light-dark) !important;
+}
+
+.bg-accent {
+	background-color: var(--accent) !important;
+}
+
+.bg-medium-accent {
+	background-color: var(--medium-accent) !important;
+}
+
+.bg-high-accent {
+	background-color: var(--high-accent) !important;
+}
+
+.bg-disabled {
+	background-color: var(--disabled) !important;
+}
+
+.bg-white-border {
+	background-color: var(--white-border) !important;
+}
+
+.bg-success-content {
+	background-color: var(--success-content) !important;
+}
+
+.bg-success-accent {
+	background-color: var(--success-accent) !important;
+}
+
+.bg-warning-content {
+	background-color: var(--warning-content) !important;
+}
+
+.bg-warning-accent {
+	background-color: var(--warning-accent) !important;
+}
+
+.bg-error-content {
+	background-color: var(--error-content) !important;
+}
+
+.bg-error-accent {
+	background-color: var(--error-accent) !important;
+}
+
+.bg-error-light {
+	background-color: var(--error-light) !important;
+}

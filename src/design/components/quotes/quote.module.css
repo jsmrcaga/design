@@ -1,0 +1,32 @@
+div.quote {
+	padding: 20px;
+	border-left: 4px solid;
+	margin: 10px 0px;
+}
+
+div.quote > h1, div.quote > h2 {
+	margin-top: 0;
+}
+
+div.quote {
+	background-color: var(--content);
+}
+
+div.quote.info {
+	border-left-color: var(--high-accent);
+}
+
+div.quote.warning {
+	background-color: var(--warning-content);
+	border-left-color: var(--warning-accent);	
+}
+
+div.quote.success {
+	background-color: var(--success-content);
+	border-left-color: var(--success-accent);	
+}
+
+div.quote.error {
+	background-color: var(--error-content);
+	border-left-color: var(--error-accent);	
+}

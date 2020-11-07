@@ -1,0 +1,84 @@
+:root {
+	--sidebar-width: 250px;
+	--sidebar-inverted-width: -250px;
+}
+
+div.sidebar-layout {
+	display: flex;
+}
+
+div.sidebar-container {
+	display: block;
+	width: var(--sidebar-width);
+	position: fixed;
+	top: 0;
+	left: 0;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	height: 100%;
+	background-color: var(--content);
+	z-index: 2;
+	border-right: solid 3px var(--accent);
+}
+
+div.sidebar-content {
+	width: 100%;
+	padding-left: var(--sidebar-width);
+}
+
+svg.menu-icon {
+	fill: var(--high-accent);
+	stroke: var(--high-accent);
+	cursor: pointer;
+	z-index: 1;
+	position: fixed;
+	top: 15px;
+	left: 15px;
+	display: block;
+	width: 30px;
+	height: 30px;
+	display: none;
+}
+
+@media only screen and (max-width:1200px) {
+	div.sidebar-content {
+		padding-top: 15px;
+		padding-left: 20px;
+	}
+
+	svg.menu-icon {
+		display: block;
+	}
+
+	div.sidebar-container {
+		left: var(--sidebar-inverted-width);
+		transition: left 0.5s ease-in-out;
+	}
+
+	div.sidebar-container.displayed {
+		left: 0;
+	}
+
+	div.sidebar-container {
+		padding-top: 50px;
+	}
+}
+
+@media only screen and (max-width:450px) {
+	div.sidebar-container {
+		display: block;
+		width: 100%;
+		left: -100%;
+	}
+
+	div.sidebar-content {
+		padding-top: 0px;
+		padding-left: 0px;
+	}
+
+	svg.menu-icon {
+		left: auto;
+		right: 5px;
+		top: 5px;
+	}
+}
