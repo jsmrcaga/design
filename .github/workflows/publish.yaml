@@ -1,0 +1,19 @@
+name: Publish
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-and-publish:
+    name: 'Publish to NPM'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install dependencies
+        run: NODE_ENV=ci npm i
+      - name: Build
+        run: npm run build
+      - name: Deploy
+        run: npm publish
