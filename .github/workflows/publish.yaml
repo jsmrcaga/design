@@ -15,5 +15,11 @@ jobs:
         run: NODE_ENV=ci npm i
       - name: Build
         run: npm run build
+      - name: Set NPM token
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: touch ~/.npmrc && echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN }}" > ~/.npmrc
+      - name: Set version
+        run: npm version `echo $GITHUB_REF | egrep -o '(\d+\.\d+.\d+)'` --git-tag-version=false --allow-same-version
       - name: Deploy
         run: npm publish
