@@ -31,9 +31,10 @@ div.dropdown-container div.dropdown-option {
 	margin-bottom: 1px;
 }
 
-div.dropdown-container div.dropdown-option:hover {
+div.dropdown-container div.dropdown-option:hover,
+div.dropdown-container div.dropdown-option.active {
 	border-radius: var(--border-radius);
-	background: var(--disabled);
+	background: var(--disabled-dark);
 }
 
 /* SEPARATORS */
