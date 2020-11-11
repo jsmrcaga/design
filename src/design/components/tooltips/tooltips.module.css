@@ -6,13 +6,13 @@ div.tooltip-container {
 }
 
 div.tooltip-container.hover:hover div.tooltip,
-div.tooltip-container.active:active div.tooltip {
+div.tooltip-container.active:active div.tooltip,
+div.tooltip-container div.tooltip.displayed {
 	display: flex;
-	justify-content: center;
-	align-items: center;
 }
 
 div.tooltip {
+	font-size: 0.8rem;
 	display: none;
 	position: absolute;
 	z-index: 2;
@@ -24,6 +24,13 @@ div.tooltip {
 	max-width: 200px;
 	border-radius: var(--border-radius);
 	pointer-events: none;
+	justify-content: center;
+	align-items: center;
+}
+
+div.tooltip-container.hover div.tooltip.hidden,
+div.tooltip-container.active div.tooltip.hidden {
+	display: none;
 }
 
 div.tooltip.top {

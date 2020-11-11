@@ -46,7 +46,7 @@ export const SimpleInput = React.forwardRef(({ className='', icon, loading, disa
 			<InputIcon icon={icon} onClick={onIconClick}/>
 		</div>
 	);
-})
+});
 
 export const Password = React.forwardRef(({ simple, type, ...rest }, ref) => {
 	const [ show, setShow ] = React.useState(false);
@@ -59,9 +59,9 @@ export const Password = React.forwardRef(({ simple, type, ...rest }, ref) => {
 		type={show ? 'text' : 'password'}
 		{...rest}
 	/>
-})
+});
 
 export const Input = React.forwardRef(({ simple, type, ...rest }, ref) => {
 	let Component = type === 'password' ? Password : (simple ? SimpleInput : FieldInput);
 	return <Component ref={ref} simple={simple} type={type} {...rest}/>;
-})
+});
