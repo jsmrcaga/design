@@ -5,7 +5,7 @@ import Style from './dropdowns.module.css';
 import { Input } from '../inputs/inputs';
 import { Separator } from '../separators/separators';
 
-export function DropdownOption({ separator, content, label, value, onClick=()=>{}, children }) {
+export function DropdownOption({ separator, content, label, value, onClick=()=>{}, children, active }) {
 	if(separator === true) {
 		return <Separator className={Style['dropdown-separator']}/>;
 	}
@@ -20,7 +20,7 @@ export function DropdownOption({ separator, content, label, value, onClick=()=>{
 	}
 
 	return (
-		<div className={Style['dropdown-option']} onClick={onClick}>
+		<div className={`${Style['dropdown-option']} ${active ? Style['active'] : ''}`} onClick={onClick}>
 			{ child }
 			{ children }
 		</div>
@@ -52,7 +52,7 @@ function useOutsideClickDropdown(ref, onClick, enabled=false) {
 }
 
 
-export function BasicDropdown({ options=[], onChange=()=>{}, open, children, clickable = false }) {
+export function BasicDropdown({ options=[], onChange=()=>{}, open, children, clickable = false, onMouseMove=()=>{}, active_option }) {
 	const refContainer = React.useRef(null);
 	const [isOpen, setOpen] = React.useState(open);
 	useOutsideClickDropdown(refContainer, () => setOpen(false), clickable);
@@ -62,16 +62,17 @@ export function BasicDropdown({ options=[], onChange=()=>{}, open, children, cli
 			let { separator, label, content, value, key } = option;
 			return <DropdownOption
 				key={key || value}
-				label={label}
+				label={label || value}
 				value={value}
 				content={content}
 				separator={separator}
+				active={index === active_option}
 				onClick={() => {
 					onChange(option);
 				}}
 			/>
 		});
-	}, [options, onChange]);
+	}, [options, onChange, active_option]);
 
 	let { child_options, triggers } = React.useMemo(() => {
 		let children_array = React.Children.toArray(children);
@@ -115,7 +116,7 @@ export function BasicDropdown({ options=[], onChange=()=>{}, open, children, cli
 			<div className={Style['dropdown-input']} onClick={handleClick}>
 				{ triggers }
 			</div>
-			<div className={`${Style['dropdown-content']} ${isOpen ? Style['open'] : ''}`}>
+			<div className={`${Style['dropdown-content']} ${isOpen ? Style['open'] : ''}`} onMouseMove={onMouseMove}>
 				{ content }
 				{ child_options }
 			</div>
@@ -123,22 +124,16 @@ export function BasicDropdown({ options=[], onChange=()=>{}, open, children, cli
 	);
 }
 
-export function SearchDropdown({ options, onChange=()=>{}, value, children, clickable = false, ...rest }) {
+export function SearchDropdown({ options, onChange=()=>{}, children, clickable = false, ...rest }) {
 	const [ open, setOpen ] = React.useState(false);
 	const [ filteredOptions, setFilteredOptions ] = React.useState(options);
+	// Used for arrow navigation
+	const [ activeOption, setActiveOption ] = React.useState(null);
 
-	const filterOptions = React.useCallback(({ target:{ value }}) => {
-		let words = value.split(' ');
-
-		let filtered = options.filter(({ label }) => {
-			for(let word of words) {
-				let reg = new RegExp(word, 'gi');
-				if(reg.test(label)) {
-					return true;
-				}
-			}
-
-			return false;
+	const filterOptions = React.useCallback(({ target:{ value:searchValue }}) => {
+		let filtered = options.filter(({ label, value }) => {
+			let regs = searchValue.split(' ').map(v => new RegExp(v, 'gi'));
+			return Boolean(regs.find(reg => reg.test(label || value)));
 		}, []);
 
 		setFilteredOptions(filtered);
@@ -149,15 +144,50 @@ export function SearchDropdown({ options, onChange=()=>{}, value, children, clic
 			return;
 		}
 		setOpen(state);
-	},[clickable])
+	}, [clickable])
+
+	const keyDown = React.useCallback(event => {
+		const { keyCode } = event;
+		if(![40, 38, 13].includes(keyCode)) {
+			return;
+		}
+
+		event.preventDefault();
+
+		if(keyCode === 13 && activeOption !== null) {
+			return onChange(filteredOptions[activeOption]);
+		}
+
+		// down 40 | up 38
+		const down = keyCode === 40;
+		const max = filteredOptions.length - 1;
+		if(activeOption === null) {
+			if(down) {
+				return setActiveOption(0);
+			}
+
+			return setActiveOption(max);
+		}
+
+		if(down) {
+			return setActiveOption(opt => opt + 1 > max ? max : opt + 1);
+		}
+
+		return setActiveOption(opt => opt - 1 < 0 ? 0 : opt - 1);
+	}, [activeOption, filteredOptions]);
+
+	const onMouseMove = React.useCallback(() => {
+		setActiveOption(null);
+	}, []);
 
 	return (
-		<BasicDropdown open={open} options={filteredOptions} onChange={onChange} clickable={clickable}>
+		<BasicDropdown open={open} options={filteredOptions} onChange={onChange} clickable={clickable} active_option={activeOption} onMouseMove={onMouseMove}>
 			{children}
 			<Input
 				onFocus={() => handleEvent(true)}
 				onBlur={() => handleEvent(false)}
 				onChange={filterOptions}
+				onKeyDown={keyDown}
 				{...rest}
 			/>
 		</BasicDropdown>
@@ -171,3 +201,29 @@ export function Dropdown({ search=false, ...rest }) {
 
 Dropdown.Option = DropdownOption;
 Dropdown.Separator = Separator;
+
+export function Select({ value, onChange, icon='gg-arrow-down-r', ...rest }) {
+	const [ innerValue, setValue ] = React.useState('');
+	React.useEffect(() => {
+		if(value === undefined || value === null) {
+			return setValue('');
+		}
+		setValue(value.label || value.value);
+	}, [value]);
+
+	const change = React.useCallback((value) => {
+		setValue(value.label || value.value);
+		onChange(value);
+	}, [onChange])
+
+	return (
+		<Dropdown
+			search
+			simple
+			icon={icon}
+			value={innerValue}
+			onChange={change}
+			{...rest}
+		/>
+	);
+}

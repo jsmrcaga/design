@@ -9,7 +9,7 @@ export { Button, Tag } from './design/components/buttons/buttons';
 export { Checkable, Checkbox, Radio, Toggle } from './design/components/checkables/checkables';
 export { CommandBoxManager, CommandBoxContextProvider, useCommandBox, OverrideCommandBox, CommandBoxActionGroup, CommandBoxActions, CommandBox } from './design/components/commands/commands';
 export { Container, Box, Row, Card } from './design/components/containers/containers';
-export { Dropdown, DropdownOption, BasicDropdown, SearchDropdown } from './design/components/dropdowns/dropdowns';
+export { Dropdown, DropdownOption, BasicDropdown, SearchDropdown, Select } from './design/components/dropdowns/dropdowns';
 export { useForm } from './design/components/forms/forms';
 export { Input, FieldInput, SimpleInput, Password } from './design/components/inputs/inputs';
 export { Modal } from './design/components/modals/modals';
