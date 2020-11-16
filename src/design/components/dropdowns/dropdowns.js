@@ -29,13 +29,13 @@ export function DropdownOption({ separator, content, label, value, onClick=()=>{
 
 
 function useOutsideClickDropdown(ref, onClick, enabled=false) {
-
 	const _onClick = React.useMemo(() => onClick, [onClick]);
 
 	React.useEffect(() => {
 		if (!enabled) {
 			return;
 		}
+
 		function handleClickOutside(event) {
 			if (ref.current && !ref.current.contains(event.target)) {
 				_onClick();
@@ -124,20 +124,22 @@ export function BasicDropdown({ options=[], onChange=()=>{}, open, children, cli
 	);
 }
 
-export function SearchDropdown({ options, onChange=()=>{}, children, clickable = false, ...rest }) {
+export function SearchDropdown({ options, onChange=()=>{}, children, clickable = false, onSearch=()=>{}, ...rest }) {
 	const [ open, setOpen ] = React.useState(false);
 	const [ filteredOptions, setFilteredOptions ] = React.useState(options);
 	// Used for arrow navigation
 	const [ activeOption, setActiveOption ] = React.useState(null);
 
 	const filterOptions = React.useCallback(({ target:{ value:searchValue }}) => {
+		onSearch(searchValue);
+
 		let filtered = options.filter(({ label, value }) => {
 			let regs = searchValue.split(' ').map(v => new RegExp(v, 'gi'));
 			return Boolean(regs.find(reg => reg.test(label || value)));
 		}, []);
 
 		setFilteredOptions(filtered);
-	}, [options]);
+	}, [options, onSearch]);
 
 	const handleEvent = React.useCallback((state) => {
 		if (clickable) {
@@ -174,7 +176,7 @@ export function SearchDropdown({ options, onChange=()=>{}, children, clickable =
 		}
 
 		return setActiveOption(opt => opt - 1 < 0 ? 0 : opt - 1);
-	}, [activeOption, filteredOptions]);
+	}, [activeOption, filteredOptions, onChange]);
 
 	const onMouseMove = React.useCallback(() => {
 		setActiveOption(null);
@@ -223,6 +225,7 @@ export function Select({ value, onChange, icon='gg-arrow-down-r', ...rest }) {
 			icon={icon}
 			value={innerValue}
 			onChange={change}
+			onSearch={(searchValue) => setValue(searchValue)}
 			{...rest}
 		/>
 	);

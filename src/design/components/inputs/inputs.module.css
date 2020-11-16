@@ -32,7 +32,7 @@ div.simple-input.inline, div.input-field.inline {
 	display: inline-block;
 }
 
-div.simple-input:not(.disabled):not(.loading) input:hover {
+div.simple-input:not(.disabled):not(.loading) input:hover:not(:focus) {
 	border: solid 2px var(--white-border);
 	box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
@@ -125,7 +125,7 @@ div.input-field.warning input {
 	border: solid 2px var(--warning-accent);
 }
 
-div.input-field:not(.disabled):not(.loading) input:hover {
+div.input-field:not(.disabled):not(.loading) input:hover:not(:focus) {
 	border: solid 2px var(--white-border);
 }
 

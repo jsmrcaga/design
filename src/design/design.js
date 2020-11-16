@@ -16,7 +16,7 @@ import { SidebarLayout } from './components/sidebar/sidebar';
 import { Uploader, FileUploader } from './components/uploader/uploader';
 import { Separator } from './components/separators/separators';
 import { Input } from './components/inputs/inputs';
-import { Dropdown } from './components/dropdowns/dropdowns';
+import { Dropdown, Select } from './components/dropdowns/dropdowns';
 import { Container, Box } from './components/containers/containers';
 import { Toasts, useToast } from './components/toasts/toasts';
 import { Checkbox, Radio, Toggle } from './components/checkables/checkables';
@@ -382,8 +382,27 @@ export default function Design() {
 						<Dropdown.Option>
 							<Input simple placeholder="Type here!"/>
 						</Dropdown.Option>
-						<Input simple loading placeholder="Complex on Click"/>
+						<Input simple placeholder="Complex on Click"/>
 					</Dropdown>
+
+					<Select
+						options={[
+							{
+								label: 'Select me!',
+								value: 'selected-1'
+							},
+							{
+								label: 'No me!',
+								value: 'selected-2'
+							},
+							{
+								label: 'Me me!',
+								value: 'selected-3'
+							}
+						]}
+						onChange={(val) => alert(val.value)}
+						placeholder="Choose a value"
+					/>
 
 
 					<Separator/>
