@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import Style from './modals.module.css';
 
-export function Modal({ children, onClose, className='' open=true }) {
+export function Modal({ children, onClose, className='', open=true }) {
 	const stopper = React.useCallback(e => e.stopPropagation(), []);
 
 	React.useEffect(() => {
