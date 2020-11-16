@@ -13,6 +13,11 @@ const Validators = {
 					return next('required');
 				}
 				break;
+			case 'checkbox':
+				if(value !== true) {
+					return next('required');
+				}
+				break;
 			default:
 				if(value === undefined) {
 					return next('required');
@@ -152,6 +157,12 @@ export function useForm(spec={}, { autovalidate=false }={}) {
 	const [ form, setForm ] = React.useState(initial_form);
 	const [ errors, setErrors ] = React.useState({});
 
+	const setError = React.useCallback((key, error) => {
+		return setErrors(errors => {
+			return {...errors, [key]: error};
+		 });
+	}, []);
+
 	const validate = React.useCallback((values=null, with_errors=false) => {
 		let _errors = {...errors};
 
@@ -207,5 +218,5 @@ export function useForm(spec={}, { autovalidate=false }={}) {
 
 	const valid = validate_all(null, false);
 
-	return { form, valid, errors, setValues, validate: validate_all };
+	return { form, valid, errors, setValues, validate: validate_all, setError };
 }

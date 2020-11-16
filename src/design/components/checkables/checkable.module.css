@@ -116,3 +116,23 @@ label.checkable.disabled {
 label.checkable span {
 	border: 2px solid rgba(255, 255, 255, 0.4);
 }
+
+label.checkable.error span {
+	border-color: var(--error-accent);
+}
+
+
+label.checkable span.message {
+	font-style: italic;
+	font-weight: 600;
+	font-size: 0.8em;
+	line-height: 1em ;
+	padding-left: 10px;
+	pointer-events: none;
+}
+
+em.message {
+	color: var(--error-accent);
+	margin-left: 5px;
+    font-size: 8px;
+}
