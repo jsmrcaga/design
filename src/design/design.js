@@ -351,7 +351,7 @@ export default function Design() {
 						<p>
 							Use in a form for many possible choices from a single category.
 						</p>
-						<Checkbox label="Lableled checkbox"/>
+						<Checkbox required label="Lableled checkbox"/>
 						<Checkbox>Children checkbox</Checkbox>
 						<Checkbox disabled label="Disabled checkbox"/>
 						<Checkbox disabled checked label="Disabled checked"/>
