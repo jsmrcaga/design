@@ -1,6 +1,6 @@
 import React from 'react';
 
-import DarkTheme from './themes/dark.css';
+import './themes/dark.css';
 import 'css.gg/icons/all.css';
 import './style/main.css';
 
@@ -355,6 +355,10 @@ export default function Design() {
 						<Checkbox>Children checkbox</Checkbox>
 						<Checkbox disabled label="Disabled checkbox"/>
 						<Checkbox disabled checked label="Disabled checked"/>
+						<Checkbox label="Message" message="This is a message"/>
+						<Checkbox label="Errored box" error/>
+						<Checkbox label="Errored box" error message="This is my error"/>
+						<Checkbox label="Warning" warning message="This is a warning"/>
 					</Box>
 					<Box>
 						<Title as="h3">
@@ -368,6 +372,11 @@ export default function Design() {
 						<Radio name="g1">children radio</Radio>
 						<Radio name="g1" disabled>disabled radio</Radio>
 						<Radio checked name="g2" disabled>disabled checked</Radio>
+
+						<Radio name="g3" label="Message" message="This is a message"/>
+						<Radio name="g3" label="Errored box" error/>
+						<Radio name="g3" label="Errored box" error message="This is my error"/>
+						<Radio name="g3" label="Warned box" warning message="This is a warning"/>
 					</Box>
 					<Box>
 						<Title as="h3">
@@ -378,6 +387,11 @@ export default function Design() {
 						</p>
 						<Toggle>Toggle me!</Toggle>
 						<Toggle disabled>Disabled toggle</Toggle>
+
+						<Toggle message="Poulet">With message</Toggle>
+						<Toggle error>Errored</Toggle>
+						<Toggle error message="Error message">Error message</Toggle>
+						<Toggle warning message="Warning message">Warning!!</Toggle>
 					</Box>
 
 
