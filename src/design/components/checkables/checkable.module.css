@@ -117,15 +117,6 @@ label.checkable span {
 	border: 2px solid rgba(255, 255, 255, 0.4);
 }
 
-label.checkable span.message {
-	font-style: italic;
-	font-weight: 600;
-	font-size: 0.8em;
-	line-height: 1em ;
-	padding-left: 10px;
-	pointer-events: none;
-}
-
 div.checkable-label-container {
 	display: inline-flex;
 	flex-direction: column;
@@ -134,6 +125,22 @@ div.checkable-label-container {
 
 label.checkable em.message {
 	font-size: 0.8em;
+	pointer-events: none;
+	font-weight: 600;
+	font-style: italic;
+}
+
+/* LABELS */
+label.checkable div.checkable-label {
+	display: inline-block;
+}
+
+label.checkable.required div.checkable-label:after {
+	content: '*';
+	color: var(--warning-accent);
+	font-size: 1.2em;
+	padding-left: 5px;
+	pointer-events: none;
 }
 
 /* ERROR */
