@@ -21,7 +21,7 @@ div.dropdown-container div.dropdown-content:not(.open) {
 	display: none;
 }
 
-div.dropdown-container:hover div.dropdown-content {
+div.dropdown-container:hover:not(.clickable) div.dropdown-content {
 	display: block;
 }
 
