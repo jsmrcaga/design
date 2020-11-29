@@ -27,7 +27,36 @@ export function DropdownOption({ separator, content, label, value, onClick=()=>{
 	);
 }
 
-export function BasicDropdown({ options=[], onChange=()=>{}, open, children }) {
+
+function useOutsideClickDropdown(ref, onClick, enabled=false) {
+
+	const _onClick = React.useMemo(() => onClick, [onClick]);
+
+	React.useEffect(() => {
+		if (!enabled) {
+			return;
+		}
+		function handleClickOutside(event) {
+			if (ref.current && !ref.current.contains(event.target)) {
+				_onClick();
+			}
+		}
+		// Bind the event listener
+		document.addEventListener("click", handleClickOutside);
+
+		return () => {
+			// Unbind the event listener on clean up
+			document.removeEventListener("click", handleClickOutside);
+		};
+	}, [ref, _onClick, enabled]);
+}
+
+
+export function BasicDropdown({ options=[], onChange=()=>{}, open, children, clickable = false }) {
+	const refContainer = React.useRef(null);
+	const [isOpen, setOpen] = React.useState(open);
+	useOutsideClickDropdown(refContainer, () => setOpen(false), clickable);
+
 	const content = React.useMemo(() => {
 		return options.map((option, index) => {
 			let { separator, label, content, value, key } = option;
@@ -67,12 +96,26 @@ export function BasicDropdown({ options=[], onChange=()=>{}, open, children }) {
 		return { child_options, triggers };
 	}, [children]);
 
+	const handleClick = React.useCallback((e) => {
+		if (!clickable) {
+			return;
+		}
+
+		setOpen(open => {
+			return !open;
+		});
+	}, [clickable]);
+
+	React.useEffect(() => {
+		setOpen(open);
+	}, [open])
+
 	return (
-		<div className={Style['dropdown-container']}>
-			<div className={Style['dropdown-input']}>
+		<div ref={refContainer} className={`${Style['dropdown-container']} ${clickable ? Style['clickable'] : ''}`}>
+			<div className={Style['dropdown-input']} onClick={handleClick}>
 				{ triggers }
 			</div>
-			<div className={`${Style['dropdown-content']} ${open ? Style['open'] : ''}`}>
+			<div className={`${Style['dropdown-content']} ${isOpen ? Style['open'] : ''}`}>
 				{ content }
 				{ child_options }
 			</div>
@@ -80,7 +123,7 @@ export function BasicDropdown({ options=[], onChange=()=>{}, open, children }) {
 	);
 }
 
-export function SearchDropdown({ options, onChange=()=>{}, value, children, ...rest }) {
+export function SearchDropdown({ options, onChange=()=>{}, value, children, clickable = false, ...rest }) {
 	const [ open, setOpen ] = React.useState(false);
 	const [ filteredOptions, setFilteredOptions ] = React.useState(options);
 
@@ -101,12 +144,19 @@ export function SearchDropdown({ options, onChange=()=>{}, value, children, ...r
 		setFilteredOptions(filtered);
 	}, [options]);
 
+	const handleEvent = React.useCallback((state) => {
+		if (clickable) {
+			return;
+		}
+		setOpen(state);
+	},[clickable])
+
 	return (
-		<BasicDropdown open={open} options={filteredOptions} onChange={onChange}>
+		<BasicDropdown open={open} options={filteredOptions} onChange={onChange} clickable={clickable}>
 			{children}
 			<Input
-				onFocus={() => setOpen(true)}
-				onBlur={() => setOpen(false)}
+				onFocus={() => handleEvent(true)}
+				onBlur={() => handleEvent(false)}
 				onChange={filterOptions}
 				{...rest}
 			/>

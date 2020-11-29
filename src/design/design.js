@@ -284,6 +284,35 @@ export default function Design() {
 
 					<Dropdown
 						basic
+						clickable
+						options={[{
+							label: 'option1',
+							value: 1
+						}, {
+							separator: 'OR'
+						}, {
+							label: 'hello',
+							content: <Title>hello</Title>,
+							value:2 
+						}, {
+							label: 'Poulet',
+							value: 3
+						}]}
+					>
+						<Button primary>Click on me and do not hover!</Button>
+					</Dropdown>
+
+					<Dropdown
+						search
+						clickable
+						simple
+						icon="gg-arrow-down-r"
+						placeholder="Click on me and do not hover!"
+						options={[{ label: 'option1', value: 1 }, { label: 'hello', content: <Title>hello</Title>, value:2 }]}
+					/>
+
+					<Dropdown
+						basic
 						options={[{
 							label: 'option1',
 							value: 1
@@ -337,6 +366,23 @@ export default function Design() {
 							<Input simple placeholder="Type here!"/>
 						</Dropdown.Option>
 						<Input simple loading placeholder="Really complex dropdown"/>
+					</Dropdown>
+
+					<Dropdown
+						clickable
+					>
+						<Dropdown.Option label="Poulet"/>
+						<Dropdown.Option separator/>
+						<Dropdown.Option>
+							<div> ITS A DIV </div>
+						</Dropdown.Option>
+						<Dropdown.Separator>
+							Choose another
+						</Dropdown.Separator>
+						<Dropdown.Option>
+							<Input simple placeholder="Type here!"/>
+						</Dropdown.Option>
+						<Input simple loading placeholder="Complex on Click"/>
 					</Dropdown>
 
 
