@@ -24,10 +24,10 @@ jobs:
         run: touch ~/.npmrc && echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN }}" > ~/.npmrc
 
       - name: Version debug
-        run: echo $GITHUB_REF | egrep -o '(\d+\.\d+.\d+)'
+        run: echo ${{ github.event.release.tag_name }}
 
       - name: Set version
-        run: npm version `echo $GITHUB_REF | egrep -o '(\d+\.\d+.\d+)'` --git-tag-version=false
+        run: npm version `echo ${{ github.event.release.tag_name }}` --git-tag-version=false
 
       - name: Deploy
         run: npm publish
