@@ -23,6 +23,7 @@ export { Toasts, useToast } from './design/components/toasts/toasts';
 export { Uploader, FileUploader } from './design/components/uploader/uploader';
 export { Flex } from './design/components/utils/flex';
 export { Tooltip, Popover } from './design/components/tooltips/tooltip';
+export { Drawer } from './design/components/drawer/drawer';
 
 export fetcher from './design/utils/fetcher';
 export JWT from './design/utils/jwt';
