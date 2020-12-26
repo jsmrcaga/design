@@ -10,7 +10,7 @@ div.modal-container {
 	z-index: 3;
 }
 
-div.modal-container div.closer {
+div.closer {
 	position: absolute;
 	top: 20px;
 	right: 30px;
@@ -22,12 +22,12 @@ div.modal-container div.closer {
 	transition: opacity 0.15s ease-in-out;
 }
 
-div.modal-container div.closer:hover {
+div.closer:hover {
 	opacity: 1;
 	background-color: rgba(0, 0, 0, 0.3);
 }
 
-div.modal-container div.closer:after, div.modal-container div.closer:before {
+div.closer:after, div.closer:before {
 	content: '';
 	position: absolute;
 	left: 9px;
@@ -38,7 +38,7 @@ div.modal-container div.closer:after, div.modal-container div.closer:before {
 	transform: rotate(45deg);
 }
 
-div.modal-container div.closer:before {
+div.closer:before {
 	transform: rotate(-45deg);
 }
 

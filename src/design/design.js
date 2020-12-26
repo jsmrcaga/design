@@ -20,6 +20,7 @@ import { Dropdown, Select } from './components/dropdowns/dropdowns';
 import { Container, Box } from './components/containers/containers';
 import { Toasts, useToast } from './components/toasts/toasts';
 import { Checkbox, Radio, Toggle } from './components/checkables/checkables';
+import { Drawer } from './components/drawer/drawer';
 
 function Color({ name='white', color='fff' }) {
 	const [ _color, setColor ] = React.useState(color);
@@ -62,6 +63,23 @@ function ModalDemo() {
 				<Title as='h3'>Modal</Title>
 				This is a simple modal!
 			</Modal>
+		</React.Fragment>
+	);
+}
+
+function DrawerDemo() {
+	const [ open, setOpen ] = React.useState(false);
+	return (
+		<React.Fragment>
+			<Box>
+				<Button primary onClick={() => setOpen(!open)}>Drawer!</Button>
+			</Box>
+			<Drawer open={open} onClose={(arg) => {
+				setOpen(false)
+			}}>
+				<Title as='h3'>Drawer</Title>
+				This is a simple drawer!
+			</Drawer>
 		</React.Fragment>
 	);
 }
@@ -592,6 +610,7 @@ export default function Design() {
 						Modals
 					</Title>
 					<ModalDemo/>
+					<DrawerDemo/>
 
 					<Separator>Tabs</Separator>
 					<Title>
