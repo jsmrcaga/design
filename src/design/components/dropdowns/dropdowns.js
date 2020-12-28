@@ -5,7 +5,7 @@ import Style from './dropdowns.module.css';
 import { Input } from '../inputs/inputs';
 import { Separator } from '../separators/separators';
 
-export function DropdownOption({ separator, content, label, value, onClick=()=>{}, children, active }) {
+export function DropdownOption({ separator, content, label, neutral=false, value, onClick=()=>{}, children, active }) {
 	if(separator === true) {
 		return <Separator className={Style['dropdown-separator']}/>;
 	}
@@ -20,7 +20,7 @@ export function DropdownOption({ separator, content, label, value, onClick=()=>{
 	}
 
 	return (
-		<div className={`${Style['dropdown-option']} ${active ? Style['active'] : ''}`} onClick={onClick}>
+		<div className={`${Style['dropdown-option']} ${neutral ? Style['neutral'] : (active ? Style['active'] : '')}`} onClick={neutral ? () => {} : onClick}>
 			{ child }
 			{ children }
 		</div>
@@ -59,7 +59,7 @@ export function BasicDropdown({ options=[], onChange=()=>{}, open, children, cli
 
 	const content = React.useMemo(() => {
 		return options.map((option, index) => {
-			let { separator, label, content, value, key } = option;
+			let { separator, label, content, value, key, neutral } = option;
 			return <DropdownOption
 				key={key || value}
 				label={label || value}
@@ -67,6 +67,7 @@ export function BasicDropdown({ options=[], onChange=()=>{}, open, children, cli
 				content={content}
 				separator={separator}
 				active={index === active_option}
+				neutral={neutral}
 				onClick={() => {
 					onChange(option);
 				}}
