@@ -27,11 +27,14 @@ div.dropdown-container:hover:not(.clickable) div.dropdown-content {
 
 div.dropdown-container div.dropdown-option {
 	padding: 10px ;
-	cursor: pointer;
 	margin-bottom: 1px;
 }
 
-div.dropdown-container div.dropdown-option:hover,
+div.dropdown-container div.dropdown-option:not(.neutral) {
+	cursor: pointer;
+}
+
+div.dropdown-container div.dropdown-option:hover:not(.neutral),
 div.dropdown-container div.dropdown-option.active {
 	border-radius: var(--border-radius);
 	background: var(--disabled-dark);

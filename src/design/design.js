@@ -304,8 +304,9 @@ export default function Design() {
 						basic
 						clickable
 						options={[{
-							label: 'option1',
-							value: 1
+							label: 'option1 neutral',
+							value: 1,
+							neutral: true
 						}, {
 							separator: 'OR'
 						}, {
@@ -393,6 +394,12 @@ export default function Design() {
 						<Dropdown.Option separator/>
 						<Dropdown.Option>
 							<div> ITS A DIV </div>
+						</Dropdown.Option>
+						<Dropdown.Option neutral>
+							<div> neutral div </div>
+						</Dropdown.Option>
+						<Dropdown.Option neutral>
+							<Input simple placeholder="neutral complex!"/>
 						</Dropdown.Option>
 						<Dropdown.Separator>
 							Choose another
