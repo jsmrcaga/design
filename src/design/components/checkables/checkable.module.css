@@ -1,10 +1,11 @@
 label.checkable {
 	position: relative;
-	padding: 10px 5px;
+	padding: 10px 0px;
 	cursor: pointer;
-	margin: 0px 5px;
+	margin: 0px;
 	display: inline-block;
 	user-select: none;
+	margin: 0 1rem 0 0;
 }
 
 label.checkable input {
@@ -24,9 +25,13 @@ label.checkable span {
 	width: 20px;
 	height: 20px;
 	position: absolute;
-	left: 6px;
+	left: 0px;
 	top: 7px;
 	transition: border 0.2s linear;
+}
+
+label.checkable input:focus ~ span {
+	border-color: var(--high-accent);
 }
 
 label.checkable:hover:not(.disabled) span {

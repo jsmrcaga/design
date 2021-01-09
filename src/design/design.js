@@ -411,6 +411,28 @@ export default function Design() {
 					</Dropdown>
 
 					<Select
+						label="A select component"
+						options={[
+							{
+								label: 'Select me!',
+								value: 'selected-1'
+							},
+							{
+								label: 'No me!',
+								value: 'selected-2'
+							},
+							{
+								label: 'Me me!',
+								value: 'selected-3'
+							}
+						]}
+						onChange={(val) => alert(val.value)}
+						placeholder="Choose a value"
+					/>
+
+					<Select
+						simple
+						label="A select component"
 						options={[
 							{
 								label: 'Select me!',
