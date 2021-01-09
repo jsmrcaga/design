@@ -38,13 +38,25 @@ table.table tr td:last-child {
 	display: table-cell;
 }
 
+table.table tr.danger td {
+	border-color: var(--error-light);
+}
+
+table.table tr.success td {
+	border-color: var(--success-accent);
+}
+
+table.table tr.warning td {
+	border-color: var(--warning-accent);
+}
+
 table.table tr td {
 	border-top: 1px solid var(--accent);
 	border-bottom: 1px solid var(--accent);
 }
 
 table.table tbody tr:hover td:first-child {
-	border-left: 5px solid var(--accent);
+	border-left-width: 5px;
 }
 
 table.table th, table.table td {
