@@ -43,10 +43,12 @@ function Color({ name='white', color='fff' }) {
 				`
 			}
 			</style>
-			<Box className={`color-demo bg-${slug}`}>
+			<Box className="color-demo" style={{
+				backgroundColor: _color
+			}}>
 				<span>{name}</span><br/><br/>
 				<span>{_color}</span>
-				<input type="color" onChange={changeColor}/>
+				<input type="color" value={_color} onChange={changeColor}/>
 			</Box>
 		</React.Fragment>
 	);
@@ -245,11 +247,13 @@ export default function Design() {
 					<Flex>
 						<Color name="Success content" color="#132f2a"/>
 						<Color name="Success Accent" color="#127b69"/>
+						<Color name="Success Light" color="#25c1a7"/>
 						<Color name="Warning Content" color="#564d29"/>
 						<Color name="Warning Accent" color="#d09f23"/>
+						<Color name="Warning Light" color="#eac157"/>
 						<Color name="Error Content" color="#561c1a"/>
-						<Color name="Error Accent" color="#b13434"/>
-						<Color name="Error Light" color="#6d2523"/>
+						<Color name="Error Accent" color="#6d2523"/>
+						<Color name="Error Light" color="#b13434"/>
 					</Flex>
 
 
@@ -594,6 +598,7 @@ export default function Design() {
 						<Button clear>Clear button</Button>
 						<Button dark>Dark</Button>
 						<Button danger>Stranger Danger</Button>
+						<Button warning>Warning</Button>
 						<Button primary loading>Loading...</Button>
 						<br/>
 						<Button small primary>Click me!</Button>
@@ -602,6 +607,7 @@ export default function Design() {
 						<Button small clear>Clear button</Button>
 						<Button small dark>Dark</Button>
 						<Button small danger>Stranger Danger</Button>
+						<Button small warning>Warning</Button>
 						<Button small primary loading>Loading...</Button>
 					</Box>
 
@@ -632,6 +638,9 @@ export default function Design() {
 						<Tag info success>Success</Tag>
 						<Tag info warning>Success</Tag>
 						<Tag info danger>Success</Tag>
+						<Tag info pill success>Pill</Tag>
+						<Tag info pill warning>Pill</Tag>
+						<Tag info pill danger>Pill</Tag>
 					</Box>
 
 					<Separator>Modals</Separator>

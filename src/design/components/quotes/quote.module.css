@@ -28,5 +28,5 @@ div.quote.success {
 
 div.quote.error {
 	background-color: var(--error-content);
-	border-left-color: var(--error-accent);	
+	border-left-color: var(--error-light);	
 }

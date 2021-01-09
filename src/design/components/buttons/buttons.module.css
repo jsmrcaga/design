@@ -39,7 +39,7 @@ button.button.big.primary {
 	background: linear-gradient(124deg, var(--accent) 20%, var(--high-accent) 100%);
 }
 
-button.button.big.primary:hover {
+button.button.big.primary:hover, button.button.big.primary:focus {
 	background: linear-gradient(124deg, var(--high-accent) 20%, var(--accent) 100%);
 }
 
@@ -48,25 +48,17 @@ button.button.big.success {
 	background: linear-gradient(124deg, var(--success-content) 20%, var(--success-accent) 100%);
 }
 
-button.button.big.success:hover {
+button.button.big.success:hover, button.button.big.success:focus {
 	background: linear-gradient(124deg, var(--success-accent) 20%, var(--success-content) 100%);
 }
 
 /* Error */
 button.button.big.danger {
-	background: linear-gradient(124deg, var(--error-content) 20%, var(--error-accent) 100%);
+	background: linear-gradient(124deg, var(--error-content) 20%, var(--error-light) 100%);
 }
 
-button.button.big.danger:hover {
-	background: linear-gradient(124deg, var(--error-accent) 20%, var(--error-content) 100%);
-}
-
-/* TAGS */
-div.tag.info {
-	font-size: 0.9em;
-	text-transform: uppercase;
-	padding: 5px 12px;
-	color: rgba(255, 255, 255, 0.6);
+button.button.big.danger:hover, button.button.big.danger:focus {
+	background: linear-gradient(124deg, var(--error-light) 20%, var(--error-content) 100%);
 }
 
 /* GENERAL */
@@ -84,7 +76,7 @@ button.button i.gg-icon.solo {
 	margin-left: 0px;
 }
 
-button.button:hover {
+button.button:hover, button.button:focus {
 	background-color: var(--accent);
 }
 
@@ -100,7 +92,7 @@ div.tag.clear, button.button.clear {
 	transition: border 0.2s ease-in-out;
 }
 
-button.button.clear:hover {
+button.button.clear:hover, button.button.clear:focus {
 	border: 2px solid var(--high-accent);
 }
 
@@ -109,7 +101,7 @@ div.tag.primary, button.button.primary {
 	background-color: var(--accent);
 }
 
-button.button.primary:hover {
+button.button.primary:hover, button.button.primary:focus {
 	background-color: var(--high-accent);
 }
 
@@ -118,7 +110,7 @@ div.tag.dark, button.button.dark {
 	background-color: var(--dark);
 }
 
-button.button.dark:hover {
+button.button.dark:hover, button.button.dark:focus {
 	background-color: var(--light-dark);
 }
 
@@ -127,17 +119,26 @@ div.tag.success, button.button.success {
 	background-color: var(--success-accent);
 }
 
-button.button.success:hover {
+button.button.success:hover, button.button.success:focus {
 	background-color: var(--success-content);
+}
+
+/* WARNING */
+div.tag.warning, button.button.warning {
+	background-color: var(--warning-content);
+}
+
+button.button.warning:hover, button.button.warning:focus {
+	background-color: var(--warning-accent);
 }
 
 /* DANGER */
 div.tag.danger, button.button.danger {
-	background-color: var(--error-light);
+	background-color: var(--error-content);
 }
 
-button.button.danger:hover {
-	background-color: var(--error-accent);
+button.button.danger:hover, button.button.danger:focus {
+	background-color: var(--error-light);
 }
 
 /* FLAT */
@@ -145,7 +146,7 @@ button.button.flat {
 	background-color: transparent;
 }
 
-button.button.flat:hover {
+button.button.flat:hover, button.button.flat:focus {
 	background-color: transparent;
 }
 
@@ -155,7 +156,7 @@ div.tag[disabled], button.button[disabled] {
 	cursor: auto;
 }
 
-button.button[disabled]:hover {
+button.button[disabled]:hover, button.button[disabled]:focus {
 	background-color: var(--gray);
 }
 
@@ -186,4 +187,51 @@ div.tag i.gg-icon:hover {
 
 div.tag {
 	margin: 3px;
+}
+
+/* Tag with pill */
+div.tag.info.pill {
+	padding-left: 7px;
+}
+
+div.tag div.pill {
+	width: 1rem;
+	height: 1rem;
+	border-radius: 1rem;
+	background-color: var(--accent);
+	margin-right: 5px;
+}
+
+/* TAGS */
+div.tag.info {
+	font-size: 0.9em;
+	text-transform: uppercase;
+	padding: 5px 12px;
+}
+
+div.tag.info.success {
+	background-color:  var(--success-content);
+	color: var(--success-light);
+}
+
+div.tag.info.success div.pill{
+	background-color: var(--success-light);
+}
+
+div.tag.info.danger {
+	background-color: var(--error-content);
+	color: var(--error-light);
+}
+
+div.tag.info.danger div.pill{
+	background-color: var(--error-light);
+}
+
+div.tag.info.warning {
+	background-color: var(--warning-content);
+	color: var(--warning-light);
+}
+
+div.tag.info.warning div.pill{
+	background-color: var(--warning-light);
 }

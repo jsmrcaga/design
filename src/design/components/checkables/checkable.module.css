@@ -149,11 +149,11 @@ label.checkable.required div.checkable-label:after {
 
 /* ERROR */
 label.checkable.error span {
-	border-color: var(--error-accent);
+	border-color: var(--error-light);
 }
 
 label.checkable.error em.message {
-	color: var(--error-accent);
+	color: var(--error-light);
 }
 
 /* WARNING */

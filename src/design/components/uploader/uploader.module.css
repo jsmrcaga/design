@@ -46,7 +46,7 @@ div.uploader svg {
 }
 
 div.uploader svg.error-icon {
-	fill: var(--error-accent);
+	fill: var(--error-light);
 }
 
 div.uploader svg.loaded-file {
