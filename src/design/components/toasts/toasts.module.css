@@ -25,7 +25,7 @@ div.toast.success {
 }
 
 div.toast.error {
-	border-left: 2px solid var(--error-accent);
+	border-left: 2px solid var(--error-light);
 }
 
 div.toast.warning {

@@ -101,7 +101,7 @@ div.input-field.warning label span.message {
 }
 
 div.input-field.error label span.message {
-	color: var(--error-accent);
+	color: var(--error-light);
 }
 
 div.input-field.disabled label {
@@ -118,7 +118,7 @@ div.input-field input {
 }
 
 div.input-field.error input {
-	border: solid 2px var(--error-accent);
+	border: solid 2px var(--error-light);
 }
 
 div.input-field.warning input {

@@ -18,13 +18,15 @@
 	/* Colors */
 	--success-content: #289654;
 	--success-accent: #39cf75;
+	--success-light: #25c1a7;
 
-	--warning-content: #564d29;
+	--warning-content: #957b13;
 	--warning-accent: #d09f23;
+	--warning-light: #eac157;
 
 	--error-content: #732a27;
-	--error-accent: #b13434;
-	--error-light: #6d2523;
+	--error-accent: #6d2523;
+	--error-light: #b13434;
 
 	/* Borders */
 	--border-radius: 0.4rem;
