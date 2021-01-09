@@ -582,6 +582,30 @@ export default function Design() {
 									<td><Tag info primary>Row</Tag></td>
 									<td>Selected</td>
 								</Table.Tr>
+
+								<Table.Tr warning>
+									<td>Name</td>
+									<td>Last Name</td>
+									<td>Gender</td>
+									<td><Tag info pill warning>Warning</Tag></td>
+									<td>Link</td>
+								</Table.Tr>
+
+								<Table.Tr danger>
+									<td>Name</td>
+									<td>Last Name</td>
+									<td>Gender</td>
+									<td><Tag info pill danger>Danger</Tag></td>
+									<td>Link</td>
+								</Table.Tr>
+
+								<Table.Tr success>
+									<td>Name</td>
+									<td>Last Name</td>
+									<td>Gender</td>
+									<td><Tag info pill success>Success</Tag></td>
+									<td>Link</td>
+								</Table.Tr>
 							</tbody>
 						</Table>
 					</Box>
