@@ -52,7 +52,7 @@ function useOutsideClickDropdown(ref, onClick, enabled=false) {
 }
 
 
-export function BasicDropdown({ options=[], onChange=()=>{}, open, children, clickable = false, onMouseMove=()=>{}, active_option }) {
+export function BasicDropdown({ options=[], onChange=()=>{}, open, children, clickable = false, onMouseMove=()=>{}, active_option, position='bottom' }) {
 	const refContainer = React.useRef(null);
 	const [isOpen, setOpen] = React.useState(open);
 	useOutsideClickDropdown(refContainer, () => setOpen(false), clickable);
@@ -117,7 +117,7 @@ export function BasicDropdown({ options=[], onChange=()=>{}, open, children, cli
 			<div className={Style['dropdown-input']} onClick={handleClick}>
 				{ triggers }
 			</div>
-			<div className={`${Style['dropdown-content']} ${isOpen ? Style['open'] : ''}`} onMouseMove={onMouseMove}>
+			<div className={`${Style['dropdown-content']} ${Style[position]} ${isOpen ? Style['open'] : ''}`} onMouseMove={onMouseMove}>
 				{ content }
 				{ child_options }
 			</div>

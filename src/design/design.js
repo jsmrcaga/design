@@ -283,6 +283,7 @@ export default function Design() {
 
 					<Dropdown
 						basic
+						position="right"
 						options={[{
 							label: 'option1',
 							value: 1
@@ -297,7 +298,7 @@ export default function Design() {
 							value: 3
 						}]}
 					>
-						<Button primary>Hover me!</Button>
+						<Button primary>Hover me display on right!</Button>
 					</Dropdown>
 
 					<Dropdown
@@ -389,6 +390,7 @@ export default function Design() {
 
 					<Dropdown
 						clickable
+						position="right"
 					>
 						<Dropdown.Option label="Poulet"/>
 						<Dropdown.Option separator/>
@@ -407,7 +409,7 @@ export default function Design() {
 						<Dropdown.Option>
 							<Input simple placeholder="Type here!"/>
 						</Dropdown.Option>
-						<Input simple placeholder="Complex on Click"/>
+						<Input simple placeholder="Complex on Click displayed on right"/>
 					</Dropdown>
 
 					<Select
