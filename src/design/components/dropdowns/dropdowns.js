@@ -222,7 +222,6 @@ export function Select({ value, onChange, icon='gg-arrow-down-r', ...rest }) {
 	return (
 		<Dropdown
 			search
-			simple
 			icon={icon}
 			value={innerValue}
 			onChange={change}
