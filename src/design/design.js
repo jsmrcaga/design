@@ -560,28 +560,28 @@ export default function Design() {
 									<td>Jo</td>
 									<td>Colina</td>
 									<td>Male</td>
-									<td>Check</td>
+									<td><Tag info primary>Check</Tag></td>
 									<td>http://jocolina.com</td>
 								</tr>
 								<tr>
 									<td>Name</td>
 									<td>Last Name</td>
 									<td>Gender</td>
-									<td>Approved</td>
+									<td><Tag info pill success>Approved</Tag></td>
 									<td>Link</td>
 								</tr>
 								<tr>
 									<td>Name</td>
 									<td>Last Name</td>
 									<td>Gender</td>
-									<td>Approved</td>
+									<td><Tag info pill danger>Declined</Tag></td>
 									<td>Link</td>
 								</tr>
 								<Table.Tr selected>
 									<td>Selected</td>
 									<td>Row</td>
 									<td>Selected</td>
-									<td>Row</td>
+									<td><Tag info primary>Row</Tag></td>
 									<td>Selected</td>
 								</Table.Tr>
 							</tbody>
