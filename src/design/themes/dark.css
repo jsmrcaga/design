@@ -1,14 +1,14 @@
 :root {
 	/* Theme */
-	--dark: #1f232b;
+	--dark: #0f111b;
 	--light-dark: #17191f;
 
-	--content: #232429;
+	--content: #1a1a23;
 	--text: #e8e6df;
 
-	--accent: #294ab7;
+	--accent: #2c2c77;
 	--medium-accent: #444398;
-	--high-accent: #467bde;
+	--high-accent: #6d6bff;
 
 	--disabled: rgba(255, 255, 255, 0.5);
 	--disabled-dark: #272727;
@@ -16,15 +16,15 @@
 	--white-border: rgba(255, 255, 255, 0.7);
 	
 	/* Colors */
-	--success-content: #289654;
-	--success-accent: #39cf75;
+	--success-content: #132f2a;
+	--success-accent: #127b69;
 	--success-light: #25c1a7;
 
-	--warning-content: #957b13;
+	--warning-content: #564d29;
 	--warning-accent: #d09f23;
 	--warning-light: #eac157;
 
-	--error-content: #732a27;
+	--error-content: #561c1a;
 	--error-accent: #6d2523;
 	--error-light: #b13434;
 
