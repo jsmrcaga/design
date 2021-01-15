@@ -133,22 +133,28 @@ export function BasicDropdown({ options=[], onChange=()=>{}, open, children, cli
 	);
 }
 
-export function SearchDropdown({ options, onChange=()=>{}, children, clickable = false, onSearch=()=>{}, disabled, ...rest }) {
+export function SearchDropdown({ options=[], onChange=()=>{}, children, clickable = false, onSearch=()=>{}, disabled, ...rest }) {
 	const [ open, setOpen ] = React.useState(false);
-	const [ filteredOptions, setFilteredOptions ] = React.useState(options);
+	const [ filter, setFilter ] = React.useState(null);
+
 	// Used for arrow navigation
 	const [ activeOption, setActiveOption ] = React.useState(null);
 
-	const filterOptions = React.useCallback(({ target:{ value:searchValue }}) => {
-		onSearch(searchValue);
+	const filterOptions = React.useCallback(({ target:{ value }}) => {
+		onSearch(value);
+		setFilter(value);
+	}, [onSearch]);
 
-		let filtered = options.filter(({ label, value }) => {
-			let regs = searchValue.split(' ').map(v => new RegExp(v, 'gi'));
+	const filteredOptions = React.useMemo(() => {
+		if(!filter) {
+			return options;
+		}
+
+		return options.filter(({ label, value }) => {
+			let regs = filter.split(' ').map(v => new RegExp(v, 'gi'));
 			return Boolean(regs.find(reg => reg.test(label || value)));
 		}, []);
-
-		setFilteredOptions(filtered);
-	}, [options, onSearch]);
+	}, [filter, options]);
 
 	const handleEvent = React.useCallback((state) => {
 		if (clickable) {
