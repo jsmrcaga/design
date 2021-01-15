@@ -1,7 +1,6 @@
 /* DROPDOWNS */
 div.dropdown-container {
 	position: relative;
-	width: fit-content;
 	display: inline-block;
 }
 

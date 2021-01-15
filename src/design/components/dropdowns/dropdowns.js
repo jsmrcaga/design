@@ -52,12 +52,16 @@ function useOutsideClickDropdown(ref, onClick, enabled=false) {
 }
 
 
-export function BasicDropdown({ options=[], onChange=()=>{}, open, children, clickable = false, onMouseMove=()=>{}, active_option, position='bottom' }) {
+export function BasicDropdown({ options=[], onChange=()=>{}, open, children, clickable = false, onMouseMove=()=>{}, active_option, position='bottom', disabled=false }) {
 	const refContainer = React.useRef(null);
 	const [isOpen, setOpen] = React.useState(open);
 	useOutsideClickDropdown(refContainer, () => setOpen(false), clickable);
 
 	const content = React.useMemo(() => {
+		if(!options.length) {
+			return null;
+		}
+
 		return options.map((option, index) => {
 			let { separator, label, content, value, key, neutral } = option;
 			return <DropdownOption
@@ -113,19 +117,23 @@ export function BasicDropdown({ options=[], onChange=()=>{}, open, children, cli
 	}, [open])
 
 	return (
-		<div ref={refContainer} className={`${Style['dropdown-container']} ${clickable ? Style['clickable'] : ''}`}>
+		<div ref={refContainer} className={`${Style['dropdown-container']} ${clickable ? Style['clickable'] : ''} ${disabled ? Style.disabled : ''}`}>
 			<div className={Style['dropdown-input']} onClick={handleClick}>
 				{ triggers }
 			</div>
-			<div className={`${Style['dropdown-content']} ${Style[position]} ${isOpen ? Style['open'] : ''}`} onMouseMove={onMouseMove}>
-				{ content }
-				{ child_options }
-			</div>
+			{
+				(child_options?.length || content?.length) && !disabled ?
+				<div className={`${Style['dropdown-content']} ${Style[position]} ${isOpen ? Style['open'] : ''}`} onMouseMove={onMouseMove}>
+					{ content }
+					{ child_options }
+				</div>
+				: null
+			}
 		</div>
 	);
 }
 
-export function SearchDropdown({ options, onChange=()=>{}, children, clickable = false, onSearch=()=>{}, ...rest }) {
+export function SearchDropdown({ options, onChange=()=>{}, children, clickable = false, onSearch=()=>{}, disabled, ...rest }) {
 	const [ open, setOpen ] = React.useState(false);
 	const [ filteredOptions, setFilteredOptions ] = React.useState(options);
 	// Used for arrow navigation
@@ -184,13 +192,14 @@ export function SearchDropdown({ options, onChange=()=>{}, children, clickable =
 	}, []);
 
 	return (
-		<BasicDropdown open={open} options={filteredOptions} onChange={onChange} clickable={clickable} active_option={activeOption} onMouseMove={onMouseMove}>
+		<BasicDropdown open={open} options={filteredOptions} onChange={onChange} clickable={clickable} active_option={activeOption} onMouseMove={onMouseMove} disabled={disabled}>
 			{children}
 			<Input
 				onFocus={() => handleEvent(true)}
 				onBlur={() => handleEvent(false)}
 				onChange={filterOptions}
 				onKeyDown={keyDown}
+				disabled={disabled}
 				{...rest}
 			/>
 		</BasicDropdown>

@@ -436,7 +436,24 @@ export default function Design() {
 						placeholder="Choose a value"
 					/>
 
+					<br/>
 					<Select
+						simple
+						label="A select component"
+						options={[]}
+						onChange={(val) => alert(val.value)}
+						placeholder="Empty array"
+					/>
+
+					<Select
+						simple
+						label="A select component"
+						onChange={(val) => alert(val.value)}
+						placeholder="No options"
+					/>
+
+					<Select
+						disabled
 						simple
 						label="A select component"
 						options={[
@@ -454,7 +471,7 @@ export default function Design() {
 							}
 						]}
 						onChange={(val) => alert(val.value)}
-						placeholder="Choose a value"
+						placeholder="Disabled"
 					/>
 
 
