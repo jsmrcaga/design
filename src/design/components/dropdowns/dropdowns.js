@@ -5,7 +5,7 @@ import Style from './dropdowns.module.css';
 import { Input } from '../inputs/inputs';
 import { Separator } from '../separators/separators';
 
-export function DropdownOption({ separator, content, label, neutral=false, value, onClick=()=>{}, children, active }) {
+export function DropdownOption({ separator, content, label, neutral=false, value, onClick=()=>{}, children, active, className="" }) {
 	if(separator === true) {
 		return <Separator className={Style['dropdown-separator']}/>;
 	}
@@ -20,13 +20,12 @@ export function DropdownOption({ separator, content, label, neutral=false, value
 	}
 
 	return (
-		<div className={`${Style['dropdown-option']} ${neutral ? Style['neutral'] : (active ? Style['active'] : '')}`} onClick={neutral ? () => {} : onClick}>
+		<div className={`${className} ${Style['dropdown-option']} ${neutral ? Style['neutral'] : (active ? Style['active'] : '')}`} onClick={neutral ? () => {} : onClick}>
 			{ child }
 			{ children }
 		</div>
 	);
 }
-
 
 function useOutsideClickDropdown(ref, onClick, enabled=false) {
 	const _onClick = React.useMemo(() => onClick, [onClick]);
@@ -52,7 +51,7 @@ function useOutsideClickDropdown(ref, onClick, enabled=false) {
 }
 
 
-export function BasicDropdown({ options=[], onChange=()=>{}, open, children, clickable = false, onMouseMove=()=>{}, active_option, position='bottom', disabled=false }) {
+export function BasicDropdown({ options=[], onChange=()=>{}, open, children, clickable = false, onMouseMove=()=>{}, active_option, position='bottom', disabled=false, className=""}) {
 	const refContainer = React.useRef(null);
 	const [isOpen, setOpen] = React.useState(open);
 	useOutsideClickDropdown(refContainer, () => setOpen(false), clickable);
@@ -63,7 +62,7 @@ export function BasicDropdown({ options=[], onChange=()=>{}, open, children, cli
 		}
 
 		return options.map((option, index) => {
-			let { separator, label, content, value, key, neutral } = option;
+			let { separator, label, content, value, key, neutral, className } = option;
 			return <DropdownOption
 				key={key || value}
 				label={label || value}
@@ -72,6 +71,7 @@ export function BasicDropdown({ options=[], onChange=()=>{}, open, children, cli
 				separator={separator}
 				active={index === active_option}
 				neutral={neutral}
+				className={className}
 				onClick={() => {
 					onChange(option);
 				}}
@@ -117,7 +117,7 @@ export function BasicDropdown({ options=[], onChange=()=>{}, open, children, cli
 	}, [open])
 
 	return (
-		<div ref={refContainer} className={`${Style['dropdown-container']} ${clickable ? Style['clickable'] : ''} ${disabled ? Style.disabled : ''}`}>
+		<div ref={refContainer} className={`${className} ${Style['dropdown-container']} ${clickable ? Style['clickable'] : ''} ${disabled ? Style.disabled : ''}`}>
 			<div className={Style['dropdown-input']} onClick={handleClick}>
 				{ triggers }
 			</div>
