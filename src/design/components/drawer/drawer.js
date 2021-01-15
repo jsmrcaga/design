@@ -3,7 +3,7 @@ import React from 'react';
 import Style from './drawer.module.css';
 import ModalStyle from '../modals/modals.module.css';
 
-export function Drawer({ children, open=false, onClose=()=>{}, closeOnClickAway=true }) {
+export function Drawer({ children, open=false, onClose=()=>{}, closeOnClickAway=true, depth=0 }) {
 	const drawerRef = React.useRef(null);
 
 	React.useEffect(() => {
@@ -20,6 +20,7 @@ export function Drawer({ children, open=false, onClose=()=>{}, closeOnClickAway=
 				return;
 			}
 
+			event.preventDefault();
 			onClose('click-away');
 		};
 
@@ -30,9 +31,14 @@ export function Drawer({ children, open=false, onClose=()=>{}, closeOnClickAway=
 		};
 	}, [open, onClose, drawerRef, closeOnClickAway]);
 
+	const style = {};
+	if(depth > 0) {
+		style.width = `calc(var(--width) - ${depth * 50}px)`;
+	}
+
 	return (
-		<div className={`${Style['drawer']} ${open ? Style['open'] : ''}`} ref={drawerRef}>
-			<div className={`${Style['drawer-closer']} ${ModalStyle['closer']}`} onClick={() => onClose('button')}/>
+		<div className={`${Style['drawer']} ${open ? Style['open'] : ''}`} style={style} ref={drawerRef}>
+			<div className={`${Style['drawer-closer']} ${ModalStyle['closer']}`} onClick={(e) => onClose('button')}/>
 			{ children }
 		</div>
 	);
