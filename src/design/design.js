@@ -69,18 +69,23 @@ function ModalDemo() {
 	);
 }
 
-function DrawerDemo() {
+function DrawerDemo({ depth=0 }) {
 	const [ open, setOpen ] = React.useState(false);
+
 	return (
 		<React.Fragment>
 			<Box>
-				<Button primary onClick={() => setOpen(!open)}>Drawer!</Button>
+				<Button primary onClick={() => setOpen(!open)}>Drawer {depth}!</Button>
 			</Box>
-			<Drawer open={open} onClose={(arg) => {
+			<Drawer depth={depth} open={open} onClose={(arg) => {
 				setOpen(false)
 			}}>
-				<Title as='h3'>Drawer</Title>
+				<Title as='h3'>Drawer {depth}</Title>
 				This is a simple drawer!
+				{
+					depth < 3 &&
+					<DrawerDemo depth={depth + 1}/>
+				}
 			</Drawer>
 		</React.Fragment>
 	);
