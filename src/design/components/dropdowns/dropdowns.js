@@ -230,6 +230,10 @@ export function Select({ value, onChange, icon='gg-arrow-down-r', ...rest }) {
 	}, [value]);
 
 	const change = React.useCallback((value) => {
+		if(!value) {
+			return;
+		}
+
 		setValue(value.label || value.value);
 		onChange(value);
 	}, [onChange])
