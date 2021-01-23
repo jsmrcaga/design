@@ -4,12 +4,12 @@ import { ReactComponent as UserSVG } from '../../iconography/user.svg';
 
 import Style from './sidebar.module.css';
 
-export function SidebarLayout({ Sidebar=null, show=false, children }) {
+export function SidebarLayout({ Sidebar=null, show=false, children, className='' }) {
 	const [ shouldShow, setShow ] = React.useState(show);
 	let sidecontent = Sidebar ? (React.isValidElement(Sidebar) ? Sidebar : <Sidebar/>) : Sidebar;
 	return (
 		<div className={Style['sidebar-layout']}>
-			<div className={`${Style['sidebar-container']} ${shouldShow ? Style['displayed'] : ''}`}>
+			<div className={`${Style['sidebar-container']} ${shouldShow ? Style['displayed'] : ''} ${className}`}>
 				<UserSVG onClick={() => setShow(!shouldShow)} className={`${Style['menu-icon']} ${Style['sidebar']}`}/>
 				{sidecontent}
 			</div>
