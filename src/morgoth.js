@@ -5,6 +5,7 @@ import './design/style/main.css';
 // Import all icons
 import 'css.gg/icons/all.css';
 
+// Components
 export { Button, Tag } from './design/components/buttons/buttons';
 export { Checkable, Checkbox, Radio, Toggle } from './design/components/checkables/checkables';
 export { CommandBoxManager, CommandBoxContextProvider, useCommandBox, OverrideCommandBox, CommandBoxActionGroup, CommandBoxActions, CommandBox } from './design/components/commands/commands';
@@ -25,6 +26,10 @@ export { Flex } from './design/components/utils/flex';
 export { Tooltip, Popover } from './design/components/tooltips/tooltip';
 export { Drawer } from './design/components/drawer/drawer';
 
+// Utils
 export fetcher from './design/utils/fetcher';
 export JWT from './design/utils/jwt';
 export Storage from './design/utils/storage';
+
+// Hooks
+export { useClickAway } from './hooks/useClickAway';
