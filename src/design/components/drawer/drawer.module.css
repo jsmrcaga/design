@@ -1,7 +1,7 @@
 .drawer {
 	--width: 500px;
 	width: var(--width);
-	height: 100vh;
+	height: 100%;
 	z-index: 10;
 	position: fixed;
 	bottom: 0;
@@ -31,7 +31,7 @@
 
 @media only screen and (max-width: 550px) {
 	.drawer {
-		--width: 100vw;
+		--width: calc(100vw - 50px);
 	}
 
 	.drawer .drawer-closer {
@@ -39,7 +39,6 @@
 		top: 10px;
 		left: unset;
 		right: 10px;
-		z-index: 15;
 		display: none
 	}
 }

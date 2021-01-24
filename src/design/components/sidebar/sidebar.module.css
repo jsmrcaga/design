@@ -14,9 +14,9 @@ div.sidebar-container {
 	top: 0;
 	left: 0;
 	height: 100%;
-	background-color: var(--content);
+	background-color: var(--dark);
 	z-index: 2;
-	border-right: solid 3px var(--accent);
+	border-right: solid 2px var(--content);
 }
 
 div.sidebar-content {
@@ -65,7 +65,7 @@ svg.menu-icon {
 @media only screen and (max-width:450px) {
 	div.sidebar-container {
 		display: block;
-		width: 100%;
+		width: calc(100% - 50px);
 		left: -100%;
 	}
 
