@@ -3,10 +3,12 @@ import React from 'react';
 import Style from './drawer.module.css';
 import ModalStyle from '../modals/modals.module.css';
 
+import { useClickAway } from '../../../hooks/useClickAway';
+
 export function Drawer({ children, open=false, onClose=()=>{}, closeOnClickAway=true, depth=0 }) {
 	const drawerRef = React.useRef(null);
 
-	React.useEffect(() => {
+	useClickAway(drawerRef, () => {
 		if(!closeOnClickAway) {
 			return;
 		}
@@ -15,25 +17,13 @@ export function Drawer({ children, open=false, onClose=()=>{}, closeOnClickAway=
 			return;
 		}
 
-		const listener = (event) => {
-			if(drawerRef.current.contains(event.target)) {
-				return;
-			}
-
-			event.preventDefault();
-			onClose('click-away');
-		};
-
-		window.document.addEventListener('click', listener, true);
-
-		return () => {
-			window.document.removeEventListener('click', listener, true);
-		};
-	}, [open, onClose, drawerRef, closeOnClickAway]);
+		onClose('click-away');
+	});
 
 	const style = {};
 	if(depth > 0) {
 		style.width = `calc(var(--width) - ${depth * 50}px)`;
+		style.zIndex = depth + 10;
 	}
 
 	return (
