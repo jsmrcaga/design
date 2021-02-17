@@ -11,7 +11,6 @@ export const useClickAway = (ref, onClickAway=()=>{}, deps=[]) => {
 				return;
 			}
 
-			event.preventDefault();
 			onClickAway();
 		};
 
