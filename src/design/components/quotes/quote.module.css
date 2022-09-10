@@ -2,6 +2,8 @@ div.quote {
 	padding: 20px;
 	border-left: 4px solid;
 	margin: 10px 0px;
+	width: 100%;
+	border-radius: var(--border-radius);
 }
 
 div.quote > h1, div.quote > h2 {

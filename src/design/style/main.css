@@ -11,10 +11,7 @@ html, body {
 body {
 	margin: 0;
 	font-family: 'VisbyCF';
-	font-weight: bold;
-	font-size: 15px;
 	box-sizing: border-box;
-	background: var(--dark);
 	color: var(--text);
 }
 

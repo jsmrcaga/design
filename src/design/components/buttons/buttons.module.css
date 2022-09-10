@@ -1,4 +1,5 @@
 button.button {
+	width: 100%;
 	user-select: none;
 	border: none;
 	background: none;

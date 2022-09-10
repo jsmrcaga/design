@@ -24,7 +24,7 @@ export const FieldInput = React.forwardRef(({ label, className='', required, nam
 				{required && <span className={Style['required']}>*</span>}
 				{message && <span className={Style['message']}>{message}</span>}
 			</label>
-			<input ref={ref} className={Style['text-input']} disabled={disabled || loading} name={name} {...rest}/>
+			<input ref={ref} className={Style['text-input']} disabled={disabled || loading} name={name} required={required} {...rest}/>
 			<InputIcon icon={icon} onClick={onIconClick}/>
 		</div>
 	);
