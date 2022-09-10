@@ -7,7 +7,7 @@ export class RequestError extends Error {
 	}
 }
 
-class Fetcher {
+export class Fetcher {
 	constructor() {
 		this.endpoint = null;
 		this.token = null;
@@ -39,7 +39,7 @@ class Fetcher {
 		return querystring;
 	}
 
-	request({ method, url='', path='/', headers={}, query={}, data, auth=true }) {
+	request({ method, url='', path='/', headers={}, query={}, body, auth=true }) {
 		let querystring = this.stringify(query);
 		let computed_url = url || `${this.endpoint}${path}${querystring}`;
 
@@ -47,20 +47,20 @@ class Fetcher {
 			headers['Authorization'] = `Bearer ${this.token}`;
 		}
 
-		if(data && !headers['Content-Type']) {
-			if(!(data instanceof FormData)) {
+		if(body && !headers['Content-Type']) {
+			if(!(body instanceof FormData)) {
 				headers['Content-Type'] = 'application/json';
 			}
 		}
 
-		if(data instanceof Object && !(data instanceof FormData)) {
-			data = JSON.stringify(data);
+		if(body instanceof Object && !(body instanceof FormData)) {
+			body = JSON.stringify(body);
 		}
 
 		return fetch(computed_url, {
 			method,
 			headers,
-			body: data
+			body
 		}).then(response => {
 			if(response.status < 200 || response.status > 299) {
 				return response.json().then(res => {

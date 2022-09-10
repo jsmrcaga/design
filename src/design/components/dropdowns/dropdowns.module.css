@@ -32,6 +32,10 @@ div.dropdown-container:hover:not(.clickable) div.dropdown-content {
 	display: block;
 }
 
+div.dropdown-content.transparent {
+	
+}
+
 div.dropdown-container div.dropdown-option {
 	padding: 10px ;
 	margin-bottom: 1px;

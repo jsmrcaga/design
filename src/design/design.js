@@ -382,6 +382,27 @@ export default function Design() {
 						options={[{ label: 'option1', value: 1 }, { label: 'hello', content: <Title>hello</Title>, value:2 }]}
 					/>
 
+					<Dropdown
+						search
+						transparent
+						simple
+						icon="gg-arrow-down-r"
+						placeholder="I'm transparent"
+						options={[{
+							label: 'option1',
+							value: 1
+						}, {
+							label: 'hello',
+							content: <Title>hello</Title>, value:2
+						}, {
+							label: 'hello',
+							content: <Title>hello</Title>, value:2
+						}, {
+							label: 'hello',
+							content: <Title>hello</Title>, value:2
+						}]}
+					/>
+
 					<Dropdown>
 						<Dropdown.Option label="Poulet"/>
 						<Dropdown.Option separator/>

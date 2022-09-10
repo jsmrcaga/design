@@ -1,5 +1,5 @@
 // Special imports to have an initial style
-import DarkTheme from './design/themes/dark.css';
+import './design/themes/dark.css';
 import './design/style/main.css';
 
 // Import all icons
@@ -12,6 +12,7 @@ export { CommandBoxManager, CommandBoxContextProvider, useCommandBox, OverrideCo
 export { Container, Box, Row, Card } from './design/components/containers/containers';
 export { Dropdown, DropdownOption, BasicDropdown, SearchDropdown, Select } from './design/components/dropdowns/dropdowns';
 export { useForm } from './design/components/forms/forms';
+export { Form } from './design/components/forms/form';
 export { Input, FieldInput, SimpleInput, Password } from './design/components/inputs/inputs';
 export { Modal } from './design/components/modals/modals';
 export { Quote } from './design/components/quotes/quote';
@@ -27,9 +28,9 @@ export { Tooltip, Popover } from './design/components/tooltips/tooltip';
 export { Drawer } from './design/components/drawer/drawer';
 
 // Utils
-export fetcher from './design/utils/fetcher';
+export fetcher from './fetcher';
 export JWT from './design/utils/jwt';
 export Storage from './design/utils/storage';
 
 // Hooks
-export { useClickAway } from './hooks/useClickAway';
+export * from './hooks';

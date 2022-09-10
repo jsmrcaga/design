@@ -64,6 +64,7 @@ div.simple-input.icon i.gg-icon {
 
 /* INPUT FIELDS */
 div.input-field {
+	width: 100%;
 	margin: 10px 0px;
 	position: relative;
 }
@@ -72,6 +73,7 @@ div.input-field label {
 	position: absolute;
 	top: 10px;
 	left: 13px;
+	font-weight: bold;
 	cursor: text;
 	user-select: none;
 	display: flex;

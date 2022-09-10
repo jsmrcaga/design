@@ -216,7 +216,10 @@ export function useForm(spec={}, { autovalidate=false }={}) {
 		validate(spec);
 	}, [form, validate]);
 
-	const valid = validate_all(null, false);
+	// Only check iƒ the form has changed
+	const valid = React.useMemo(() => {
+		return validate_all(null, false);
+	}, [form]);
 
 	return { form, valid, errors, setValues, validate: validate_all, setError };
 }
