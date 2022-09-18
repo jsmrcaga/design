@@ -31,6 +31,7 @@ export { Drawer } from './design/components/drawer/drawer';
 export fetcher from './fetcher';
 export JWT from './design/utils/jwt';
 export Storage from './design/utils/storage';
+export { classnames } from './design/utils/classnames';
 
 // Hooks
 export * from './hooks';
