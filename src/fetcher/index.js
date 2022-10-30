@@ -24,7 +24,6 @@ export class Fetcher {
 
 	emit(event, data) {
 		if(!this.events[event]) {
-			console.warn('');
 			return;
 		}
 
@@ -39,7 +38,7 @@ export class Fetcher {
 		return querystring;
 	}
 
-	request({ method, url='', path='/', headers={}, query={}, body, auth=true }) {
+	request({ method, url='', path='/', headers={}, query={}, body, auth=true, fetchOptions={} }) {
 		let querystring = this.stringify(query);
 		let computed_url = url || `${this.endpoint}${path}${querystring}`;
 
@@ -60,7 +59,8 @@ export class Fetcher {
 		return fetch(computed_url, {
 			method,
 			headers,
-			body
+			body,
+			...fetchOptions
 		}).then(response => {
 			if(response.status < 200 || response.status > 299) {
 				return response.json().then(res => {
@@ -90,7 +90,7 @@ export class Fetcher {
 		}).catch(e => {
 			console.error(e);
 			throw e;
-		})
+		});
 	}
 }
 

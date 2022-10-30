@@ -19,5 +19,5 @@ export const useClickAway = (ref, onClickAway=()=>{}, deps=[]) => {
 		return () => {
 			window.document.removeEventListener('click', listener, true);
 		};
-	}, [ref, onClickAway, ...deps]); // eslint-disable-line react-hooks/exhaustive-deps
+	}, [ref, onClickAway, ...deps]);
 };
