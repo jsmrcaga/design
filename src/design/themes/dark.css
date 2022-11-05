@@ -31,4 +31,65 @@
 	/* Borders */
 	--border-radius: 0.4rem;
 	--border-radius-small: 0.3rem;
+
+	/* COLORS */
+	--primary-rgb: 236, 220, 197;
+	--primary: rgb(var(--primary-rgb));
+	--primary-80: #BDB09E;
+	--primary-60: #8E8476;
+	--primary-50: #766E62;
+	--primary-40: #5E584F;
+	--primary-20: #2F2C27;
+	--primary-10: #181614;
+	--primary-05: #0C0B0A;
+
+	--green-rgb: 171, 231, 94;
+	--green: rgba(var(--green-rgb), 1);
+	--green-80: #89B94B;
+	--green-60: #678B38;
+	--green-50: #55732F;
+	--green-40: #445C26;
+	--green-20: #222E13;
+	--green-10: rgba(var(--green-rgb), 0.1);
+	--green-05: rgba(var(--green-rgb), 0.05);
+
+	--red-rgb: 253, 78, 78;
+	--red: rgba(var(--red-rgb), 1);
+	--red-80: rgba(var(--red-rgb), 0.8);
+	--red-60: rgba(var(--red-rgb), 0.6);
+	--red-50: rgba(var(--red-rgb), 0.5);
+	--red-40: rgba(var(--red-rgb), 0.4);
+	--red-20: rgba(var(--red-rgb), 0.2);
+	--red-10: rgba(var(--red-rgb), 0.1);
+	--red-05: rgba(var(--red-rgb), 0.05);
+
+	--yellow-rgb: 220, 165, 23;
+	--yellow: rgba(var(--yellow-rgb), 1);
+	--yellow-80: rgba(var(--yellow-rgb), 0.8);
+	--yellow-60: rgba(var(--yellow-rgb), 0.6);
+	--yellow-50: rgba(var(--yellow-rgb), 0.5);
+	--yellow-40: rgba(var(--yellow-rgb), 0.4);
+	--yellow-20: rgba(var(--yellow-rgb), 0.2);
+	--yellow-10: rgba(var(--yellow-rgb), 0.1);
+	--yellow-05: rgba(var(--yellow-rgb), 0.05);
+
+	--blue-rgb: 76, 152, 242;
+	--blue: rgba(var(--blue-rgb), 1);
+	--blue-80: rgba(var(--blue-rgb), 0.8);
+	--blue-60: rgba(var(--blue-rgb), 0.6);
+	--blue-50: rgba(var(--blue-rgb), 0.5);
+	--blue-40: rgba(var(--blue-rgb), 0.4);
+	--blue-20: rgba(var(--blue-rgb), 0.2);
+	--blue-10: rgba(var(--blue-rgb), 0.1);
+	--blue-05: rgba(var(--blue-rgb), 0.05);
+
+	--purple-rgb: 152, 34, 244;
+	--purple: rgba(var(--purple-rgb), 1);
+	--purple-80: rgba(var(--purple-rgb), 0.8);
+	--purple-60: rgba(var(--purple-rgb), 0.6);
+	--purple-50: rgba(var(--purple-rgb), 0.5);
+	--purple-40: rgba(var(--purple-rgb), 0.4);
+	--purple-20: rgba(var(--purple-rgb), 0.2);
+	--purple-10: rgba(var(--purple-rgb), 0.1);
+	--purple-05: rgba(var(--purple-rgb), 0.05);
 }

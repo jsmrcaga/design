@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { classnames } from '../../utils/classnames';
+
 import Style from './buttons.module.css';
 
 export const Button = React.forwardRef(({ big, primary, success, warning, disabled, clear, danger, dark, small, flat, content, loading, children, className='', type='button', ...rest }, ref) => {
@@ -16,11 +18,10 @@ export const Button = React.forwardRef(({ big, primary, success, warning, disabl
 	);
 });
 
-export function Tag({ info, pill=false, primary, warning, success, disabled, clear, danger, dark, small, flat, content, children, className='', clearable, onClear=()=>{}, ...rest }) {
-	let _class = Object.entries({ info, pill, primary, warning, success, clear, danger, dark, small, flat }).filter(([k, v]) => v).map(([k]) => Style[k]).join(' ');
-	_class = `${_class} ${className}`;
+export function Tag({ info, pill=false, primary, warning, success, disabled, clear, danger, dark, small, flat, content, children, className='', clearable, onClick=null, onClear=null, ...rest }) {
+	let _class = Object.entries({ info, pill, primary, warning, success, clear, danger, dark, small, flat }).filter(([k, v]) => v).map(([k]) => Style[k]);
 	return (
-		<div disabled={disabled} className={`${Style['tag']} ${_class}`} {...rest}>
+		<div disabled={disabled} className={classnames(Style['tag'], className, {[Style.clickable]: onClick}, ..._class)} {...rest} onClick={onClick}>
 			{pill && <div className={Style['pill']}/>}
 			{children || content}
 			{clearable &&
