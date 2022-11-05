@@ -17,7 +17,7 @@ import { Uploader, FileUploader } from './components/uploader/uploader';
 import { Separator } from './components/separators/separators';
 import { Input } from './components/inputs/inputs';
 import { Dropdown, Select } from './components/dropdowns/dropdowns';
-import { Container, Box } from './components/containers/containers';
+import { Container, Box, Card, CardGroup } from './components/containers/containers';
 import { Toasts, useToast } from './components/toasts/toasts';
 import { Checkbox, Radio, Toggle } from './components/checkables/checkables';
 import { Drawer } from './components/drawer/drawer';
@@ -261,13 +261,32 @@ export default function Design() {
 						<Color name="Error Light" color="#b13434"/>
 					</Flex>
 
+					<Separator>Cards</Separator>
+					<Title>
+						Cards
+					</Title>
+					<Card>
+						Simple card
+					</Card>
+					<Card>
+						Second card
+					</Card>
+
+					<CardGroup>
+						<Card>
+							Simple card
+						</Card>
+						<Card>
+							Second card
+						</Card>
+					</CardGroup>
 
 					<Separator>Inputs</Separator>
 					<Title>
 						Inputs
 					</Title>
 					<Box>
-					<Input label="Username" placeholder="xxCrazyLordxx" type="text"/>
+						<Input label="Username" placeholder="xxCrazyLordxx" type="text"/>
 						<Input loading label="Search" placeholder="your search query" type="text"/>
 						<Input icon="gg-alarm" label="Icon" placeholder="your search query" type="text"/>
 						<Input required message="This field is required" label="Password" placeholder="Password" type="password"/>
@@ -665,6 +684,7 @@ export default function Design() {
 						<Button content={'Click me!'}/>
 						<Button flat>Flat button</Button>
 						<Button clear>Clear button</Button>
+						<Button clear warning>Clear button</Button>
 						<Button dark>Dark</Button>
 						<Button danger>Stranger Danger</Button>
 						<Button warning>Warning</Button>

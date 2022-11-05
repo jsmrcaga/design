@@ -12,7 +12,7 @@ input.text-input {
 	cursor: text;
 	will-change: border;
 	transition: border 0.2s ease-in-out;
-	background-color: var(--dark);
+	background-color: black;
 }
 
 /* SIMPLE INPUTS */
@@ -25,7 +25,7 @@ div.simple-input {
 
 div.simple-input input {
 	border-radius: var(--border-radius);
-	border: solid 2px var(--content);
+	border: solid 2px var(--primary-20);
 }
 
 div.simple-input.inline, div.input-field.inline {
@@ -33,12 +33,12 @@ div.simple-input.inline, div.input-field.inline {
 }
 
 div.simple-input:not(.disabled):not(.loading) input:hover:not(:focus) {
-	border: solid 2px var(--white-border);
+	border: solid 2px var(--primary-60);
 	box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
 div.simple-input input:focus {
-	border: solid 2px var(--high-accent);
+	border: solid 2px var(--primary-60);
 }
 
 div.simple-input.icon input {
@@ -79,11 +79,11 @@ div.input-field label {
 	display: flex;
 	align-items: baseline;
 	pointer-events: none;
-	color: var(--white-border);
+	color: var(--primary);
 }
 
 div.input-field label span.required {
-	color: var(--warning-accent);
+	color: var(--yellow-80);
 	font-size: 1.2em;
 	padding-left: 5px;
 	pointer-events: none;
@@ -99,11 +99,11 @@ div.input-field label span.message {
 }
 
 div.input-field.warning label span.message {
-	color: var(--warning-accent);
+	color: var(--yellow-80);
 }
 
 div.input-field.error label span.message {
-	color: var(--error-light);
+	color: var(--red-80);
 }
 
 div.input-field.disabled label {
@@ -112,7 +112,7 @@ div.input-field.disabled label {
 
 div.input-field input {
 	border-radius: var(--border-radius);
-	border: solid 2px var(--content);
+	border: solid 2px var(--primary-20);
 	padding: 10px 15px;
 	padding-top: 2.3em;
 	padding-bottom: 12px;
@@ -120,19 +120,19 @@ div.input-field input {
 }
 
 div.input-field.error input {
-	border: solid 2px var(--error-light);
+	border: solid 2px var(--red-50);
 }
 
 div.input-field.warning input {
-	border: solid 2px var(--warning-accent);
+	border: solid 2px var(--yellow-50);
 }
 
 div.input-field:not(.disabled):not(.loading) input:hover:not(:focus) {
-	border: solid 2px var(--white-border);
+	border: solid 2px var(--primary-60);
 }
 
 div.input-field input:focus {
-	border: solid 2px var(--high-accent);
+	border: solid 2px var(--primary-60);
 }
 
 div.input-field.icon i.gg-icon {

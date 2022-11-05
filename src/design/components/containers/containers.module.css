@@ -13,7 +13,7 @@ div.box.lifted {
 }
 
 div.box {
-	background-color: var(--content);
+	/* background-color: var(--primary-10); */
 	box-shadow: 0px 0px 20px 6px rgba(0,0, 0, 0.2);
 }
 
@@ -41,13 +41,32 @@ div.row {
 /* CARDS */
 div.card {
 	border-radius: var(--border-radius);
-	border: 2px solid var(--accent);
-	padding: 10px 15px;
-	margin-right: 10px;
+	border: 2px solid var(--primary-20);
+	padding: 20px 24px;
+	background-color: black;
 }
 
-div.card:last-child {
-	margin-right: 0px;
+div.card:hover {
+	background-color: var(--primary-10);
+}
+
+div.card.fluid {
+	width: 100%;
+}
+
+div.card:not(:last-child) {
+	margin-bottom: 10px;
+}
+
+div.card-group {
+	display: flex;
+	flex-direction: row;
+	gap: 8px;
+}
+
+div.card-group div.card {
+	/* Force it */
+	margin-bottom: 10px;
 }
 
 @media only screen and (max-width:450px) {

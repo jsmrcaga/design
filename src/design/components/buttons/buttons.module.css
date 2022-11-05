@@ -1,5 +1,5 @@
 button.button {
-	width: 100%;
+	--background-color: var(--primary-60);
 	user-select: none;
 	border: none;
 	background: none;
@@ -9,7 +9,7 @@ button.button {
 	cursor: pointer;
 	padding: 10px 15px;
 	color: var(--text);
-	background-color: var(--content);
+	background-color: var(--background-color);
 	will-change: background-color, opacity;
 	transition: background-color 0.2s ease-in-out, opacity 0.15s ease-in-out, background 0.2s ease-in-out;
 	font-size: 1rem;
@@ -20,47 +20,28 @@ button.button {
 	margin-bottom: 5px;
 }
 
+
+
+div.tag {
+	background-color: var(--background-color);
+	border: 1px solid var(--pill-border, var(--primary-50));
+}
+
 button.small {
 	padding: 8px 10px;
 	font-size: 0.8em;
 	border-radius: var(--border-radius-small);
 }
 
-/* BIG BUTTONS */
-button.button.big {
-	width: auto;
-	display: flex;
-	width: 100%;
-	max-width: 500px;
-	box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+button.button:hover {
+	--background-color: var(--primary-50);
 }
 
-/* primary */
-button.button.big.primary {
-	background: linear-gradient(124deg, var(--accent) 20%, var(--high-accent) 100%);
+button.button:focus-visible {
+	outline: 2px solid var(--primary-50);
+	outline-offset: 2px;
 }
 
-button.button.big.primary:hover, button.button.big.primary:focus {
-	background: linear-gradient(124deg, var(--high-accent) 20%, var(--accent) 100%);
-}
-
-/* Success */
-button.button.big.success {
-	background: linear-gradient(124deg, var(--success-content) 20%, var(--success-accent) 100%);
-}
-
-button.button.big.success:hover, button.button.big.success:focus {
-	background: linear-gradient(124deg, var(--success-accent) 20%, var(--success-content) 100%);
-}
-
-/* Error */
-button.button.big.danger {
-	background: linear-gradient(124deg, var(--error-content) 20%, var(--error-light) 100%);
-}
-
-button.button.big.danger:hover, button.button.big.danger:focus {
-	background: linear-gradient(124deg, var(--error-light) 20%, var(--error-content) 100%);
-}
 
 /* GENERAL */
 div.tag, button.button {
@@ -77,69 +58,65 @@ button.button i.gg-icon.solo {
 	margin-left: 0px;
 }
 
-button.button:hover, button.button:focus {
-	background-color: var(--accent);
-}
-
 button.button:active {
 	opacity: 0.85;
 }
 
 /* CLEAR */
 div.tag.clear, button.button.clear {
-	border: 2px solid var(--accent);
+	border: 2px solid var(--background-color);
 	background-color: transparent;
 	will-change: border;
 	transition: border 0.2s ease-in-out;
 }
 
-button.button.clear:hover, button.button.clear:focus {
-	border: 2px solid var(--high-accent);
+div.tag.clickable {
+	cursor: pointer;
 }
 
 /* PRIMARY */
 div.tag.primary, button.button.primary {
-	background-color: var(--accent);
+	--background-color: var(--blue-60);
 }
 
-button.button.primary:hover, button.button.primary:focus {
-	background-color: var(--high-accent);
+button.button.primary:hover, button.button.primary:focus-visible {
+	--background-color: var(--blue-80);
 }
 
 /* DARK */
 div.tag.dark, button.button.dark {
-	background-color: var(--dark);
+	--background-color: var(--primary-05);
 }
 
-button.button.dark:hover, button.button.dark:focus {
-	background-color: var(--light-dark);
+button.button.dark:hover, button.button.dark:focus-visible {
+	--background-color: var(--primary-10);
 }
 
 /* SUCCESS */
 div.tag.success, button.button.success {
-	background-color: var(--success-accent);
+	--background-color: var(--green-80);
 }
 
-button.button.success:hover, button.button.success:focus {
-	background-color: var(--success-content);
+button.button.success:hover, button.button.success:focus-visible {
+	--background-color: var(--green-60);
 }
 
 /* WARNING */
 div.tag.warning, button.button.warning {
-	background-color: var(--warning-content);
+	--background-color: var(--yellow-80);
 }
 
-button.button.warning:hover, button.button.warning:focus {
-	background-color: var(--warning-accent);
+button.button.warning:hover, button.button.warning:focus-visible {
+	--background-color: var(--yellow-60);
 }
 
 /* DANGER */
 div.tag.danger, button.button.danger {
-	background-color: var(--error-content);
+	--background-color: var(--red-80);
 }
 
-button.button.danger:hover, button.button.danger:focus {
-	background-color: var(--error-light);
+button.button.danger:hover, button.button.danger:focus-visible {
+	--background-color: var(--red-60);
 }
 
 /* FLAT */
@@ -147,7 +124,7 @@ button.button.flat {
 	background-color: transparent;
 }
 
-button.button.flat:hover, button.button.flat:focus {
+button.button.flat:hover, button.button.flat:focus-visible {
 	background-color: transparent;
 }
 
@@ -157,14 +134,14 @@ div.tag[disabled], button.button[disabled] {
 	cursor: auto;
 }
 
-button.button[disabled]:hover, button.button[disabled]:focus {
+button.button[disabled]:hover, button.button[disabled]:focus-visible {
 	background-color: var(--gray);
 }
 
 /* Tags */
 div.tag {
-	padding: 7px 10px;
-	font-size: 0.8em;
+	padding: 5px 25px;
+	font-size: 1em;
 	border-radius: 1rem;
 	box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.3);
 }
