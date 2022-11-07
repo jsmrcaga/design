@@ -22,3 +22,13 @@ h2 {
 .anchor {
 	display: none;
 }
+
+.header {
+	display: flex;
+	align-items: center;
+	margin: 1em 0;
+}
+
+.header .title {
+	margin: 0;
+}

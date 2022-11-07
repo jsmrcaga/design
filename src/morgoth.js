@@ -20,7 +20,7 @@ export { Separator } from './design/components/separators/separators';
 export { SidebarLayout } from './design/components/sidebar/sidebar';
 export { Table, Td, Tr } from './design/components/tables/tables';
 export { Tabs, Tab } from './design/components/tabs/tabs';
-export { Title } from './design/components/titles/title';
+export { Title, Header } from './design/components/titles/title';
 export { Toasts, useToast } from './design/components/toasts/toasts';
 export { Uploader, FileUploader } from './design/components/uploader/uploader';
 export { Flex } from './design/components/utils/flex';
