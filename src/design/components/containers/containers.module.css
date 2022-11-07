@@ -22,10 +22,6 @@ div.container.fluid {
 	width: 100%;
 }
 
-div.container {
-	max-width: 1300px;
-}
-
 div.container.centered {
 	margin: 0 auto;
 }
@@ -40,6 +36,7 @@ div.row {
 
 /* CARDS */
 div.card {
+	display: inline-block;
 	border-radius: var(--border-radius);
 	border: 2px solid var(--primary-20);
 	padding: 20px 24px;
