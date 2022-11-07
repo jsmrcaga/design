@@ -64,7 +64,7 @@ export function BasicDropdown({ options=[], onChange=()=>{}, open, children, cli
 		return options.map((option, index) => {
 			let { separator, label, content, value, key, neutral, className } = option;
 			return <DropdownOption
-				key={key || value}
+				key={key || value || label}
 				label={label || value}
 				value={value}
 				content={content}
