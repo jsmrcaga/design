@@ -7,7 +7,15 @@ export function Title({ anchor=null, as='h2', children, title, className='' }) {
 	return (
 		<React.Fragment>
 			{anchor && <a id={anchor} href={`#${anchor}`} className={Style['anchor']}>{anchor}</a>}
-			<Component className={`${className} title`}>{children || title}</Component>
+			<Component className={`${className} ${Style.title}`}>{children || title}</Component>
 		</React.Fragment>
 	);
 }
+
+export const Header = React.forwardRef(({ children }, ref) => {
+	return (
+		<div ref={ref} className={Style.header}>
+			{children}
+		</div>
+	);
+});
